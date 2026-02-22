@@ -12,13 +12,13 @@ datasets:
       # Be careful not to append minus sign (-) before split to avoid itemizing
       annotations:
         train:
-          url: /home/yijunyan/Data/cache/alfworld/dataset/annotations/train.json
-          storage: /home/yijunyan/Data/cache/alfworld/dataset/annotations/train.json
+          url: /srv/scratch/z5428797/cache/alfworld/dataset/annotations/train.json
+          storage: /srv/scratch/z5428797/cache/alfworld/dataset/annotations/train.json
         # val:
-        #   url: /home/yijunyan/Data/cache/alfworld/dataset/annotations/train.json
-        #   storage: /home/yijunyan/Data/cache/alfworld/dataset/annotations/train.json
+        #   url: /srv/scratch/z5428797/cache/alfworld/dataset/annotations/train.json
+        #   storage: /srv/scratch/z5428797/cache/alfworld/dataset/annotations/train.json
         # test:
-        #   url: /home/yijunyan/Data/cache/alfworld/dataset/annotations/train.json
-        #   storage: /home/yijunyan/Data/cache/alfworld/dataset/annotations/train.json
+        #   url: /srv/scratch/z5428797/cache/alfworld/dataset/annotations/train.json
+        #   storage: /srv/scratch/z5428797/cache/alfworld/dataset/annotations/train.json
       images:
-        storage: /home/yijunyan/Data/cache/alfworld/dataset/images/
+        storage: /srv/scratch/z5428797/cache/alfworld/dataset/images/

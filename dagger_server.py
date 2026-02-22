@@ -100,48 +100,48 @@ class ServerThread(threading.Thread):
             print("Server running on IP:", self.host, "PORT:", self.port)
             httpd.serve_forever()
 
- # 调用命令kill之前的监听进程
+ # Kill any existing process listening on port 7860 before starting the server
 def release_port():
     command = "ss -lptn 'sport = :7860'"
     output = subprocess.check_output(command, shell=True).decode()
-    # 解析输出结果获取PID
+    # Parse the output to get the PID
     lines = output.strip().split('\n')
     if len(lines) > 1:
-        # 忽略标题行，获取第一行数据
+        # Skip the header line; take the first data line
         line = lines[1]
-        # 使用正则表达式提取PID
+        # Use regex to extract the PID from the output
         pid_pattern =  r',pid=(\d+),'
         match =re.search(pid_pattern, line)
         if match:
             pid = match.group(1)
-            # 杀死对应的进程
+            # Kill the process holding the port
             os.kill(int(pid), 9)
             time.sleep(5)
 
 def process_feedback(text):
-    # 使用正则表达式匹配并提取字段
+    # Use regex to match and extract all tagged fields from the feedback string
     # pattern = r'\[#OBSERVATION\](.*?)\[#IMAGE\](.*)'
     pattern = r'\[#OBSERVATION\](.*?)\[#HISTORY\](.*?)\[#INFORMATION\](.*?)\[#TYPE\](.*?)\[#DONE\](.*?)\[#IMAGE\](.*)'
     mat = re.match(pattern, text, re.DOTALL)
     feedback_data = FeedbackData()
-    # 将匹配到的字段存储到相应的变量中
+    # Store each matched field into the corresponding FeedbackData attribute
     if mat:
         feedback_data.observation = mat.group(1)
-        
+
         feedback_data.history = mat.group(2)
-        # 将info由str转为dict
+        # Convert the info string to a Python dict
         feedback_data.information = ast.literal_eval(mat.group(3))
 
         feedback_data.task_type = mat.group(4)
-        
+
         if mat.group(5) == "True":
             feedback_data.done = True
         else:
             feedback_data.done = False
-        
-        # 将接收到的数据解析为Python对象
+
+        # Deserialize the JSON-encoded image data
         py_data = json.loads(mat.group(6))
-        # 将Python对象转换为numpy数组并设置dtype为uint8
+        # Convert to numpy array with uint8 dtype and wrap in a PIL Image
         feedback_data.image = Image.fromarray(np.asarray(py_data, dtype=np.uint8))
         # cv2.imwrite('1.jpg', image)
         # feedback_data.image.save('1.jpg')
@@ -150,7 +150,7 @@ def process_feedback(text):
 
 release_port()
 PORT=7860
-IP="0.0.0.0" # 自动获取本地IP
+IP="0.0.0.0" # Listen on all network interfaces
 server_thread = ServerThread(IP, PORT, action_queue, feedback_queue)
 server_thread.start()
 
@@ -168,7 +168,7 @@ format_time = time.strftime("%Y%m%d%H%M%S", time_array)
 method = "dagger_server_human_desc"
 enable_dpo = True
 enable_tc = False
-output_dir = f"/home/yangyijun14/repos/EMMA/LAVIS/align_outputs/{method}/with_bc_dpo-{enable_dpo}-tc-{enable_tc}-{format_time}/"
+output_dir = f"/srv/scratch/z5428797/EMAC-Embodied-Multimodal-Agent-for-Collaborative-Planning-with-VLM-LLM/output/{method}/with_bc_dpo-{enable_dpo}-tc-{enable_tc}-{format_time}/"
 
 relexion_dir = os.path.join(output_dir, 'logging_results')
 if not os.path.exists(relexion_dir):

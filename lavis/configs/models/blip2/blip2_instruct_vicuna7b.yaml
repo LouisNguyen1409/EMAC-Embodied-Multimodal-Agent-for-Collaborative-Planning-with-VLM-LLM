@@ -11,7 +11,9 @@ model:
   load_pretrained: True
 
   # pretrained: "https://storage.googleapis.com/sfr-vision-language-research/LAVIS/models/InstructBLIP/instruct_blip_vicuna7b_trimmed.pth"
-  pretrained: "/home/yijunyan/Data/PyCode/LAVIS/lavis/output/InstructBLIP/Caption_Alfworld/20230819035/checkpoint_99.pth"
+  # This checkpoint is produced by running train.py (offline InstructBLIP fine-tuning on ALFWorld captions).
+  # After training, update the path below to the generated checkpoint file.
+  pretrained: "/srv/scratch/z5428797/EMAC-Embodied-Multimodal-Agent-for-Collaborative-Planning-with-VLM-LLM/output/EMAC/<TIMESTAMP>/checkpoint_99.pth"
   finetuned: ""
 
   # vit encoder

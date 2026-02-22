@@ -7,10 +7,9 @@ model:
   load_pretrained: True
   
   base_model: "https://storage.googleapis.com/sfr-vision-language-research/LAVIS/models/InstructBLIP/instruct_blip_vicuna7b_trimmed.pth"
-  # ref_pretrained: "/home/yangyijun14/repos/EMMA/LAVIS/align_outputs/bc_server_human_desc/dpo-False-tc-False-20231021212602/emma_checkpoint_11.pth"
-  # "/home/yangyijun14/repos/EMMA/LAVIS/lavis/output/EMMA/no_text_cond_proj_tuning/20231010193/checkpoint_5.pth"
-  # "/home/yangyijun14/repos/EMMA/LAVIS/align_outputs/bc_server/dpo-False-tc-False-20231011235423/emma_checkpoint_10.pth"
-  # pretrained: "/home/yangyijun14/repos/EMMA/LAVIS/align_outputs/bc_server_human_desc/dpo-False-tc-False-20231021212602/emma_checkpoint_11.pth"
+  # ref_pretrained: "/srv/scratch/z5428797/EMAC-Embodied-Multimodal-Agent-for-Collaborative-Planning-with-VLM-LLM/output/dagger_server_human_desc/with_bc_dpo-True-tc-False-<TIMESTAMP>/emma_checkpoint_11.pth"
+  # pretrained: "/srv/scratch/z5428797/EMAC-Embodied-Multimodal-Agent-for-Collaborative-Planning-with-VLM-LLM/output/dagger_server_human_desc/with_bc_dpo-True-tc-False-<TIMESTAMP>/emma_checkpoint_11.pth"
+  # Update <TIMESTAMP> with the actual run folder name after training.
 
   # emac
   low_memory: True
@@ -30,7 +29,7 @@ model:
   freeze_proj_layer: False
 
   # path to Vicuna checkpoint
-  llm_model: "/srv/scratch/CRUISE/shuang/huggingface/hub/vicuna-7b-v1.1"
+  llm_model: "/srv/scratch/z5428797/models/vicuna-7b-v1.1"
   max_txt_len: 1024
   max_output_txt_len: 128
 

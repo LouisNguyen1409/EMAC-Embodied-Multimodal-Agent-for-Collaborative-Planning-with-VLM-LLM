@@ -1,12 +1,16 @@
 #!/bin/bash
+# NOTE: This script uses SGE syntax (#$ directives). Katana uses PBS (qsub).
+# For Katana, convert to a PBS script or submit interactively with:
+#   qsub -I -l select=1:ncpus=4:ngpus=4:mem=80gb -l walltime=10:00:00
+# See Guide.md §13 for Katana job submission details.
 
-#$ -P CRUISE
-#$ -N xrl_alignment
+#$ -P z5428797
+#$ -N emac_train
 #$ -j y
 #$ -m ea
-#$ -M shuang.ao@unsw.edu.au
-#$ -e /srv/scratch/CRUISE/shuang/results/$JOB_ID_$JOB_NAME.err
-#$ -o /srv/scratch/CRUISE/shuang/results/$JOB_ID_$JOB_NAME.out
+#$ -M z5428797@ad.unsw.edu.au
+#$ -e /srv/scratch/z5428797/results/$JOB_ID_$JOB_NAME.err
+#$ -o /srv/scratch/z5428797/results/$JOB_ID_$JOB_NAME.out
 #$ -cwd
 #$ -l walltime=10:00:00
 #$ -l mem=80G
@@ -18,19 +22,19 @@
 source ~/.bashrc
 
 # ## setup conda environment
-# __conda_setup="$('/srv/scratch/CRUISE/shuang/miniconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
+# __conda_setup="$('/srv/scratch/z5428797/miniconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
 # if [ $? -eq 0 ]; then
 #     eval "$__conda_setup"
 # else
-#     if [ -f "/srv/scratch/CRUISE/shuang/miniconda3/etc/profile.d/conda.sh" ]; then
-#         . "/srv/scratch/CRUISE/shuang/miniconda3/etc/profile.d/conda.sh"
+#     if [ -f "/srv/scratch/z5428797/miniconda3/etc/profile.d/conda.sh" ]; then
+#         . "/srv/scratch/z5428797/miniconda3/etc/profile.d/conda.sh"
 #     else
-#         export PATH="/srv/scratch/CRUISE/shuang/miniconda3/bin:$PATH"
+#         export PATH="/srv/scratch/z5428797/miniconda3/bin:$PATH"
 #     fi
 # fi
 # unset __conda_setup
 #
-cd /srv/scratch/CRUISE/shuang/code/emac
+cd /srv/scratch/z5428797/EMAC-Embodied-Multimodal-Agent-for-Collaborative-Planning-with-VLM-LLM
 rm test.log
 conda activate emac
 

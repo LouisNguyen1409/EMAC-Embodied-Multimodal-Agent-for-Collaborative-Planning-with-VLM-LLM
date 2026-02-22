@@ -1,12 +1,12 @@
 #!/bin/bash
 
-#$ -P CRUISE
+#$ -P z5428797
 #$ -N emac_test_alignment
 #$ -j y
 #$ -m ea
-#$ -M shuang.ao@unsw.edu.au
-#$ -e /srv/scratch/CRUISE/shuang/results/$JOB_ID_$JOB_NAME.err
-#$ -o /srv/scratch/CRUISE/shuang/results/$JOB_ID_$JOB_NAME.out
+#$ -M z5428797@ad.unsw.edu.au
+#$ -e /srv/scratch/z5428797/results/$JOB_ID_$JOB_NAME.err
+#$ -o /srv/scratch/z5428797/results/$JOB_ID_$JOB_NAME.out
 #$ -cwd
 #$ -l walltime=10:00:00
 #$ -l mem=80G
@@ -18,19 +18,19 @@
 source ~/.bashrc
 
 # ## setup conda environment
-# __conda_setup="$('/srv/scratch/CRUISE/shuang/miniconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
+# __conda_setup="$('/srv/scratch/z5428797/miniconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
 # if [ $? -eq 0 ]; then
 #     eval "$__conda_setup"
 # else
-#     if [ -f "/srv/scratch/CRUISE/shuang/miniconda3/etc/profile.d/conda.sh" ]; then
-#         . "/srv/scratch/CRUISE/shuang/miniconda3/etc/profile.d/conda.sh"
+#     if [ -f "/srv/scratch/z5428797/miniconda3/etc/profile.d/conda.sh" ]; then
+#         . "/srv/scratch/z5428797/miniconda3/etc/profile.d/conda.sh"
 #     else
-#         export PATH="/srv/scratch/CRUISE/shuang/miniconda3/bin:$PATH"
+#         export PATH="/srv/scratch/z5428797/miniconda3/bin:$PATH"
 #     fi
 # fi
 # unset __conda_setup
 #
-cd /srv/scratch/CRUISE/shuang/code/emac
+cd /srv/scratch/z5428797/EMAC-Embodied-Multimodal-Agent-for-Collaborative-Planning-with-VLM-LLM
 conda activate emac
 
 python -c "import torch; print(torch.cuda.device_count())" >> test_gpu_1.log 2>&1
