@@ -1,0 +1,46 @@
+name: emac
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.9
+  - spacy=3.4.4
+  - opencv
+  - libtiff
+  - jpeg
+  - libjpeg-turbo
+  - libstdcxx-ng
+  - vulkan-tools
+  - pip
+  - pip:
+    - contexttimer
+    - decord
+    - einops>=0.4.1
+    - fairscale==0.4.4
+    - ftfy
+    - iopath
+    - ipython
+    - omegaconf
+    - opendatasets
+    - packaging
+    - pandas
+    - plotly
+    - pre-commit
+    - pycocoevalcap
+    - pycocotools
+    - python-magic
+    - alfworld
+    - scikit-image
+    - sentencepiece
+    - streamlit
+    - timm==0.4.12
+    - torch>=1.10.0
+    - torchvision
+    - tqdm
+    - transformers==4.30.0
+    - webdataset
+    - wheel
+    - numpy>=1.22.4,<2.0
+    - openai==0.28
+    - scienceworld
+    - ai2thor
