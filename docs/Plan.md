@@ -43,7 +43,7 @@
 - [ ] Read the **EMAC+ paper** fully — take structured notes (see Guide.md §1 and §2)
 - [x] Install conda, create `emac` Python 3.9 environment
 - [x] Run `conda env create -f environment.yml` + `pip install -e . --no-deps` — full environment set up
-- [ ] Create Overleaf project with faculty LaTeX thesis template
+- [x] Create Overleaf project with faculty LaTeX thesis template
 
 ---
 
@@ -61,8 +61,8 @@
 
 - [ ] Read **DPO paper** (Rafailov et al., 2023) — take notes
 - [ ] Read **InstructBLIP paper** (Dai et al., 2023) — take notes
-- [ ] Run first EMAC+ baseline test: `num_envs=10, num_rounds=2, run_training=False`
-- [ ] Confirm dagger_server.py and ALFWorld client communicate (2-terminal setup)
+- [x] Run first EMAC+ baseline test: `num_envs=10, num_rounds=2, run_training=False`
+- [x] Confirm dagger_server.py and ALFWorld client communicate (2-terminal setup)
 - [ ] Record preliminary success rate in experiment_log.md
 
 ---
