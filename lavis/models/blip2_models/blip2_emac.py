@@ -96,6 +96,7 @@ class Blip2Emac(Blip2Base):
     """
 
     PRETRAINED_MODEL_CONFIG_DICT = {
+        "vicuna7b": "configs/models/blip2/blip2_emac.yaml",
         "vicuna13b": "configs/models/blip2/blip2_emac.yaml",
     }
 

@@ -181,7 +181,7 @@ logger.info(f'{"Dagger Procedure Start Running":*^40}')
 # setup device to use
 device = torch.device("cuda") if torch.cuda.is_available() else "cpu"
 # loads EMMA model
-model, vis_processors, _ = load_model_and_preprocess(name="blip2_emma", model_type="vicuna7b", is_eval=False, device=device)
+model, vis_processors, _ = load_model_and_preprocess(name="blip2_emac", model_type="vicuna7b", is_eval=False, device=device)
 
 # reflexion configs
 PREFIXES = {
