@@ -42,5 +42,8 @@ dependencies:
     - wheel
     - numpy>=1.22.4,<2.0
     - openai==0.28
+    - h5py
+    - tiktoken
+    - tenacity
     - scienceworld
     - ai2thor
