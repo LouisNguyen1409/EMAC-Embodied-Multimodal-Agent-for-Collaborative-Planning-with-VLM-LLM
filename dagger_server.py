@@ -158,15 +158,15 @@ server_thread.start()
 seed = 42
 set_seed(seed)
 # experiment configs
-num_rounds = 12
-num_envs = 134
+num_rounds = 2
+num_envs = 3
 run_training = True
 save_ckpt = True
 now = int(time.time())
 time_array = time.localtime(now)
 format_time = time.strftime("%Y%m%d%H%M%S", time_array)
 method = "dagger_server_human_desc"
-enable_dpo = True
+enable_dpo = True  # DPO requires a reference model; use BC for the first run
 enable_tc = False
 output_dir = f"/srv/scratch/z5428797/EMAC-Embodied-Multimodal-Agent-for-Collaborative-Planning-with-VLM-LLM/output/{method}/with_bc_dpo-{enable_dpo}-tc-{enable_tc}-{format_time}/"
 
@@ -214,7 +214,7 @@ else:
 train_iters_per_epoch = 5
 if enable_dpo:
     accum_grad_steps = 4
-    batch_size = 4
+    batch_size = 1
 else:
     accum_grad_steps = 4
     batch_size = 8
@@ -299,13 +299,13 @@ while trial_idx < num_rounds:
             image = vis_processors["eval"](feedback_data.image).unsqueeze(0).to(device)
 
             # llm forward
-            llm_action = llm_forward(str(env_history) + "> ", stop=['\n'], model="text-davinci-003").strip()
+            llm_action = llm_forward(str(env_history) + "> ", stop=['\n'], model="gpt-5.2-2025-12-11").strip()
 
             # not imitating thought trace
             while llm_action.startswith("think:") and (not enable_tc):
                 env_history.add("action", llm_action)
                 env_history.add("observation", "OK.")
-                llm_action = llm_forward(str(env_history) + "> ", stop=['\n'], model="text-davinci-003").strip()
+                llm_action = llm_forward(str(env_history) + "> ", stop=['\n'], model="gpt-5.2-2025-12-11").strip()
 
             # vlm forward
             vlm_action = model.generate({"image": image, "prompt": feedback_data.history}, 
@@ -438,7 +438,7 @@ while trial_idx < num_rounds:
                         else:
                             env_history = EnvironmentHistory(base_prompt, init_ob, env_configs[f'env_{cur_task}']['memory'], [])
 
-    env_configs = update_memory(trial_log_path, env_configs, model='text-davinci-003')
+    env_configs = update_memory(trial_log_path, env_configs, model='gpt-5.2-2025-12-11')
 
     for i, (k, v) in enumerate(PREFIXES.items()):
         if feedback_data.task_type.startswith(k) and not env_configs['env_0']['is_success']:
@@ -477,6 +477,12 @@ TIME: {time.time() - start_time:.2f} s
         save_checkpoint(model, optimizer, scaler, trial_idx, output_dir)
 
     trial_idx += 1
-    
-    
+
+# Signal completion so pipeline scripts can detect when this phase is done
+done_marker = os.path.join(output_dir, "DONE")
+with open(done_marker, 'w') as f:
+    f.write(f"completed at {time.strftime('%Y-%m-%d %H:%M:%S')}\n")
+logger.info(f"Training complete. Marker written to {done_marker}")
+print(f"Training complete. Output dir: {output_dir}")
+
 release_port()

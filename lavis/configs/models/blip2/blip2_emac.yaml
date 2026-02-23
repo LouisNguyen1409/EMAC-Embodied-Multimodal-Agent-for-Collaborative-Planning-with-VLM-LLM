@@ -7,9 +7,9 @@ model:
   load_pretrained: True
   
   base_model: "https://storage.googleapis.com/sfr-vision-language-research/LAVIS/models/InstructBLIP/instruct_blip_vicuna7b_trimmed.pth"
-  # ref_pretrained: "/srv/scratch/z5428797/EMAC-Embodied-Multimodal-Agent-for-Collaborative-Planning-with-VLM-LLM/output/dagger_server_human_desc/with_bc_dpo-True-tc-False-<TIMESTAMP>/emma_checkpoint_11.pth"
-  # pretrained: "/srv/scratch/z5428797/EMAC-Embodied-Multimodal-Agent-for-Collaborative-Planning-with-VLM-LLM/output/dagger_server_human_desc/with_bc_dpo-True-tc-False-<TIMESTAMP>/emma_checkpoint_11.pth"
-  # Update <TIMESTAMP> with the actual run folder name after training.
+  ref_pretrained: "/srv/scratch/z5428797/EMAC-Embodied-Multimodal-Agent-for-Collaborative-Planning-with-VLM-LLM/output/dagger_server_human_desc/with_bc_dpo-False-tc-False-20260223194651/emma_checkpoint_1.pth"
+  pretrained: "/srv/scratch/z5428797/EMAC-Embodied-Multimodal-Agent-for-Collaborative-Planning-with-VLM-LLM/output/dagger_server_human_desc/with_bc_dpo-False-tc-False-20260223194651/emma_checkpoint_1.pth"
+  # Paths above are set automatically by run_full_pipeline.sh
 
   # emac
   low_memory: True

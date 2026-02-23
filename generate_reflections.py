@@ -25,7 +25,7 @@ def _generate_reflection_query(log_str: str, memory: List[str]) -> str:
     query += 'New plan: '
     return query
 
-def update_memory(trial_log_path: str, env_configs: Dict[str, Dict[str, Any]], model: str = 'gpt-35-turbo-16k') -> Dict[str, Dict[str, Any]]:
+def update_memory(trial_log_path: str, env_configs: Dict[str, Dict[str, Any]], model: str = 'gpt-5.2-2025-12-11') -> Dict[str, Dict[str, Any]]:
     """Updates the given env_config with the appropriate reflections."""
     with open(trial_log_path, 'r') as f:
         full_log: str = f.read()
@@ -45,6 +45,8 @@ def update_memory(trial_log_path: str, env_configs: Dict[str, Dict[str, Any]], m
             
             if model == "text-davinci-003":
                 reflection: str = get_completion(reflection_query, model)
+            elif model == "gpt-5.2-2025-12-11":
+                reflection: str = get_chat(reflection_query, model)
             else:
                 reflection: str = get_chat(reflection_query, model)
                           

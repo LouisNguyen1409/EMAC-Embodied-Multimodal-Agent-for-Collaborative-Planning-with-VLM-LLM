@@ -1,0 +1,723 @@
+INFO:dagger_server_running:*****Dagger Procedure Start Running*****
+INFO:root:freeze vision encoder
+INFO:root:freeze Qformer
+INFO:root:freeze ref_Qformer
+INFO:root:load base model from https://storage.googleapis.com/sfr-vision-language-research/LAVIS/models/InstructBLIP/instruct_blip_vicuna7b_trimmed.pth
+INFO:root:load checkpoint from /srv/scratch/z5428797/EMAC-Embodied-Multimodal-Agent-for-Collaborative-Planning-with-VLM-LLM/output/dagger_server_human_desc/with_bc_dpo-False-tc-False-20260223194651/emma_checkpoint_1.pth
+INFO:root:load ref_model from /srv/scratch/z5428797/EMAC-Embodied-Multimodal-Agent-for-Collaborative-Planning-with-VLM-LLM/output/dagger_server_human_desc/with_bc_dpo-False-tc-False-20260223194651/emma_checkpoint_1.pth
+INFO:dagger_server_running:number of trainable parameters: 3152640
+INFO:dagger_server_running:Task: [0], Iter: [0], Obs: -= Welcome to TextWorld, ALFRED! =-
+
+You are in the middle of a room. Looking quickly around you, you see a bathtub 1, a bathtubbasin 1, a countertop 1, a shelf 1, a shelf 2, a sink 1, a sinkbasin 1, a handtowelholder 1, a handtowelholder 2, a toilet 1, a toiletpaperhanger 1, and a towelholder 1.
+
+Your task is to: Put a clean rag on the back of the toilet., VLM Action: you are in the middle of a room. looking quickly around you, you see a bathtub 1, a bathtubbasin 1, a countertop 1, a shelf 1, a shelf 2, a sink 1, a sinkbasin 1, a handtowelholder 1, a handtowelholder 2, a toilet 1, a toiletpaperhanger 1, and a towelholder 1, LLM Action: go to toilet 1
+INFO:dagger_server_running:Task: [0], Iter: [1], Obs: You are in the middle of a room. Looking quickly around you, you see nothing., VLM Action: you are in the middle of a room. looking quickly around you, you see nothing, LLM Action: go to countertop 1
+INFO:dagger_server_running:Task: [0], Iter: [2], Obs: You are in the middle of a room. Looking quickly around you, you see nothing., VLM Action: you are in the middle of a room. looking quickly around you, you see a bathtub 1, a bathtubbasin 1, a countertop 1, a shelf 1, a shelf 2, a sink 1, a sinkbasin 1, a handtowelholder 1, a handtowelholder 2, a toilet 1, a toiletpaperhanger 1, and a towelholder 1, LLM Action: go to countertop 1
+INFO:dagger_server_running:Task: [0], Iter: [3], Obs: You are in the middle of a room. Looking quickly around you, you see nothing., VLM Action: you are in the middle of a room. looking quickly around you, you see a bathtub 1, a bathtubbasin 1, a countertop 1, a shelf 1, a shelf 2, a sink 1, a sinkbasin 1, a handtowelholder 1, a handtowelholder 2, a toilet 1, a toiletpaperhanger 1, and a towelholder 1
+you are in the middle of a room. looking quickly around you, you see a bathtub 1, LLM Action: go to countertop 1
+INFO:dagger_server_running:Task: [0], Iter: [4], Obs: You are in the middle of a room. Looking quickly around you, you see nothing., VLM Action: you are in the middle of a room. looking quickly around you, you see a bathtub 1, a bathtubbasin 1, a countertop 1, a shelf 1, a shelf 2, a sink 1, a sinkbasin 1, a handtowelholder 1, a handtowelholder 2, a toilet 1, a toiletpaperhanger 1, and a towelholder 1
+you are in the middle of a room. looking quickly around you, you see a bathtub 1, LLM Action: go to countertop 1
+INFO:dagger_server_running:Task: [0], Iter: [5], Obs: You are in the middle of a room. Looking quickly around you, you see nothing., VLM Action: you are in the middle of a room. looking quickly around you, you see a bathtub 1, a bathtubbasin 1, a countertop 1, a shelf 1, a shelf 2, a sink 1, a sinkbasin 1, a handtowelholder 1, a handtowelholder 2, a toilet 1, a toiletpaperhanger 1, and a towelholder 1\nyou are in the middle of a room. looking quickly around you, you see a bathtub, LLM Action: go to countertop 1
+INFO:dagger_server_running:Task: [0], Iter: [6], Obs: You are in the middle of a room. Looking quickly around you, you see nothing., VLM Action: you are in the middle of a room. looking quickly around you, you see a bathtub 1, a bathtubbasin 1, a countertop 1, a shelf 1, a shelf 2, a sink 1, a sinkbasin 1, a handtowelholder 1, a handtowelholder 2, a toilet 1, a toiletpaperhanger 1, and a towelholder 1
+you are in the middle of a room. looking quickly around you, you see a bathtub 1, LLM Action: go to countertop 1
+INFO:dagger_server_running:Task: [0], Iter: [7], Obs: You are in the middle of a room. Looking quickly around you, you see nothing., VLM Action: you are in the middle of a room. looking quickly around you, you see a bathtub 1, a bathtubbasin 1, a countertop 1, a shelf 1, a shelf 2, a sink 1, a sinkbasin 1, a handtowelholder 1, a handtowelholder 2, a toilet 1, a toiletpaperhanger 1, and a towelholder 1\nyou are in the middle of a room. looking quickly around you, you see a bathtub, LLM Action: go to countertop 1
+INFO:dagger_server_running:Task: [0], Iter: [8], Obs: You are in the middle of a room. Looking quickly around you, you see nothing., VLM Action: you are in the middle of a room. looking quickly around you, you see a bathtub 1, a bathtubbasin 1, a countertop 1, a shelf 1, a shelf 2, a sink 1, a sinkbasin 1, a handtowelholder 1, a handtowelholder 2, a toilet 1, a toiletpaperhanger 1, and a towelholder 1\nyou are in the middle of a room. looking quickly around you, you see a bathtub, LLM Action: go to countertop 1
+INFO:dagger_server_running:Task: [0], Iter: [9], Obs: You are in the middle of a room. Looking quickly around you, you see nothing., VLM Action: you are in the middle of a room. looking quickly around you, you see a bathtub 1, a bathtubbasin 1, a countertop 1, a shelf 1, a shelf 2, a sink 1, a sinkbasin 1, a handtowelholder 1, a handtowelholder 2, a toilet 1, a toiletpaperhanger 1, and a towelholder 1\nyou are in the middle of a room. looking quickly around you, you see a bathtub, LLM Action: go to countertop 1
+INFO:dagger_server_running:Task: [0], Iter: [10], Obs: You are in the middle of a room. Looking quickly around you, you see nothing., VLM Action: you are in the middle of a room. looking quickly around you, you see a bathtub 1, a bathtubbasin 1, a countertop 1, a shelf 1, a shelf 2, a sink 1, a sinkbasin 1, a handtowelholder 1, a handtowelholder 2, a toilet 1, a toiletpaperhanger 1, and a towelholder 1\\nyou are in the middle of a room. looking quickly around you, you see a bathtub, LLM Action: go to countertop 1
+INFO:dagger_server_running:Task: [0], Iter: [11], Obs: You are in the middle of a room. Looking quickly around you, you see nothing., VLM Action: you are in the middle of a room. looking quickly around you, you see a bathtub 1, a bathtubbasin 1, a countertop 1, a shelf 1, a shelf 2, a sink 1, a sinkbasin 1, a handtowelholder 1, a handtowelholder 2, a toilet 1, a toiletpaperhanger 1, and a towelholder 1\\nyou are in the middle of a room. looking quickly around you, you see a bathtub, LLM Action: go to countertop 1
+INFO:dagger_server_running:Task: [0], Iter: [12], Obs: You are in the middle of a room. Looking quickly around you, you see nothing., VLM Action: you are in the middle of a room. looking quickly around you, you see a bathtub 1, a bathtubbasin 1, a countertop 1, a shelf 1, a shelf 2, a sink 1, a sinkbasin 1, a handtowelholder 1, a handtowelholder 2, a toilet 1, a toiletpaperhanger 1, and a towelholder 1\nyou are in the middle of a room. looking quickly around you, you see a bathtub, LLM Action: go to countertop 1
+INFO:dagger_server_running:Task: [0], Iter: [13], Obs: You are in the middle of a room. Looking quickly around you, you see nothing., VLM Action: you are in the middle of a room. looking quickly around you, you see a bathtub 1, a bathtubbasin 1, a countertop 1, a shelf 1, a shelf 2, a sink 1, a sinkbasin 1, a handtowelholder 1, a handtowelholder 2, a toilet 1, a toiletpaperhanger 1, and a towelholder 1\\\\nyou are in the middle of a room. looking quickly around you, you see a bathtub, LLM Action: go to countertop 1
+INFO:dagger_server_running:Task: [0], Iter: [14], Obs: You are in the middle of a room. Looking quickly around you, you see nothing., VLM Action: you are in the middle of a room. looking quickly around you, you see a bathtub 1, a bathtubbasin 1, a countertop 1, a shelf 1, a shelf 2, a sink 1, a sinkbasin 1, a handtowelholder 1, a handtowelholder 2, a toilet 1, a toilet 1, a toiletpaperhanger 1, and a towelholder 1, LLM Action: go to countertop 1
+INFO:dagger_server_running:Task: [0], Iter: [15], Obs: You are in the middle of a room. Looking quickly around you, you see nothing., VLM Action: you are in the middle of a room. looking quickly around you, you see a bathtub 1, a bathtubbasin 1, a countertop 1, a shelf 1, a shelf 1, a handtowelholder 1, a toilet 1, a toiletpaperhanger 1, and a towelholder 1, a shelf 1, a handtowelholder 1, a toiletpaperhanger 1, a shelf 1, a handtowelholder 1, a shelf, LLM Action: go to countertop 1
+INFO:dagger_server_running:Task: [0], Iter: [16], Obs: You are in the middle of a room. Looking quickly around you, you see nothing., VLM Action: you are in the middle of a shelf 1, a shelf, a shelf 1, a shelf 1, LLM Action: go to countertop 1
+INFO:dagger_server_running:Task: [0], Iter: [17], Obs: Nothing happens., VLM Action: a shelf 1, a shelf 1, a shelf 1, a shelf, a shelf 1, a shelf 1, a shelf 1, a shelf 1, a shelf 1, a shelf, a shelf 1, a shelf, a shelf, a shelf, a shelf, a shelf, a shelf, a shelf, a shelf, a shelf, a shelf, a shelf, a shelf, LLM Action: go to countertop 1
+INFO:dagger_server_running:Task: [0], Iter: [18], Obs: Nothing happens., VLM Action: a shelf, a shelf, LLM Action: go to countertop 1
+INFO:dagger_server_running:Task: [0], Iter: [19], Obs: Nothing happens., VLM Action: a shelf, a shelf, a shelf, LLM Action: go to countertop 1
+INFO:dagger_server_running:Task: [0], Iter: [20], Obs: Nothing happens., VLM Action: a shelf, a shelf, a shelf, LLM Action: go to countertop 1
+INFO:dagger_server_running:Task: [0], Iter: [21], Obs: Nothing happens., VLM Action: a shelf, a shelf, a shelf, a, a shelf, a shelf, a shelf, a shelf, a shelf, a shelf, a shel, a shel, a, a shelf, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, LLM Action: go to countertop 1
+INFO:dagger_server_running:Task: [0], Iter: [22], Obs: Nothing happens., VLM Action: a, a, a, a, a, a, a, a, a, LLM Action: go to countertop 1
+INFO:dagger_server_running:Task: [0], Iter: [23], Obs: Nothing happens., VLM Action: a, a, a, a, a, a, a, a, a, a, LLM Action: go to countertop 1
+INFO:dagger_server_running:Task: [0], Iter: [24], Obs: Nothing happens., VLM Action: a, a, a, and, a, and, and, and, and, and, and, and, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, and, a, and, and, and, and, and, a, a, a, and, a, and, and, and, LLM Action: go to countertop 1
+INFO:dagger_server_running:Task: [0], Iter: [25], Obs: Nothing happens., VLM Action: and, LLM Action: go to countertop 1
+INFO:dagger_server_running:Task: [0], Iter: [26], Obs: Nothing happens., VLM Action: and, LLM Action: go to countertop 1
+INFO:dagger_server_running:Task: [0], Iter: [27], Obs: Nothing happens., VLM Action: and, LLM Action: go to countertop 1
+INFO:dagger_server_running:Task: [0], Iter: [28], Obs: Nothing happens., VLM Action: and, LLM Action: go to countertop 1
+INFO:dagger_server_running:Task: [0], Iter: [29], Obs: Nothing happens., VLM Action: and, LLM Action: go to countertop 1
+INFO:dagger_server_running:Task: [0], Iter: [30], Obs: Nothing happens., VLM Action: and, LLM Action: go to countertop 1
+INFO:dagger_server_running:Task: [0], Iter: [31], Obs: Nothing happens., VLM Action: and, LLM Action: go to countertop 1
+INFO:dagger_server_running:Task: [0], Iter: [32], Obs: Nothing happens., VLM Action: to, to, to, to, to, to, to, to, to, to, to, to, and, and, and, and, LLM Action: go to countertop 1
+INFO:dagger_server_running:Task: [0], Iter: [33], Obs: Nothing happens., VLM Action: a, LLM Action: go to countertop 1
+INFO:dagger_server_running:Task: [0], Iter: [34], Obs: Nothing happens., VLM Action: it, it, LLM Action: go to countertop 1
+INFO:dagger_server_running:Task: [0], Iter: [35], Obs: Nothing happens., VLM Action: it, LLM Action: go to countertop 1
+INFO:dagger_server_running:Task: [0], Iter: [36], Obs: Nothing happens., VLM Action: , LLM Action: go to countertop 1
+INFO:dagger_server_running:Task: [0], Iter: [37], Obs: Nothing happens., VLM Action: , LLM Action: go to countertop 1
+INFO:dagger_server_running:Task: [0], Iter: [38], Obs: Nothing happens., VLM Action: you, LLM Action: go to countertop 1
+INFO:dagger_server_running:Task: [0], Iter: [39], Obs: Nothing happens., VLM Action: you, LLM Action: go to countertop 1
+INFO:dagger_server_running:Task: [0], Iter: [40], Obs: Nothing happens., VLM Action: you, LLM Action: go to countertop 1
+INFO:dagger_server_running:Task: [0], Iter: [41], Obs: Nothing happens., VLM Action: you, LLM Action: go to countertop 1
+INFO:dagger_server_running:Task: [0], Iter: [42], Obs: Nothing happens., VLM Action: and, LLM Action: go to countertop 1
+INFO:dagger_server_running:Task: [0], Iter: [43], Obs: Nothing happens., VLM Action: and, LLM Action: go to countertop 1
+INFO:dagger_server_running:Task: [0], Iter: [44], Obs: Nothing happens., VLM Action: and, LLM Action: go to countertop 1
+INFO:dagger_server_running:Task: [0], Iter: [45], Obs: Nothing happens., VLM Action: and, LLM Action: go to countertop 1
+INFO:dagger_server_running:Task: [0], Iter: [46], Obs: Nothing happens., VLM Action: to, it, LLM Action: go to countertop 1
+INFO:dagger_server_running:Task: [0], Iter: [47], Obs: Nothing happens., VLM Action: , LLM Action: go to countertop 1
+INFO:dagger_server_running:Task: [0], Iter: [48], Obs: Nothing happens., VLM Action: and, and, and, and, and, and, [, [, [, [, [,, LLM Action: go to countertop 1
+INFO:dagger_server_running:Task: [0], Iter: [49], Obs: Nothing happens., VLM Action: to, to, LLM Action: go to countertop 1
+INFO:dagger_server_running:Task: [0], Iter: [50], Obs: Nothing happens., VLM Action: to, LLM Action: go to countertop 1
+INFO:dagger_server_running:*************Start Training*************
+INFO:dagger_server_running:Epoch: [0], Iter: [0], Lr: [0.000000], Loss: [2.4771], W_reward: [0.0000], L_reward: [0.0000], NLL: [3.5679]
+INFO:dagger_server_running:Epoch: [0], Iter: [1], Lr: [0.000000], Loss: [2.3558], W_reward: [0.0000], L_reward: [0.0000], NLL: [3.3253]
+INFO:dagger_server_running:Epoch: [0], Iter: [2], Lr: [0.000000], Loss: [2.3671], W_reward: [0.0000], L_reward: [0.0000], NLL: [3.3479]
+INFO:dagger_server_running:Epoch: [0], Iter: [3], Lr: [0.000000], Loss: [2.3740], W_reward: [0.0000], L_reward: [0.0000], NLL: [3.3617]
+INFO:dagger_server_running:Epoch: [0], Iter: [4], Lr: [0.000000], Loss: [2.4353], W_reward: [-0.0001], L_reward: [0.0000], NLL: [3.4842]
+INFO:dagger_server_running:Epoch: [0], Iter: [5], Lr: [0.000000], Loss: [2.1745], W_reward: [0.0000], L_reward: [0.0001], NLL: [2.9627]
+INFO:dagger_server_running:Epoch: [0], Iter: [6], Lr: [0.000000], Loss: [2.4758], W_reward: [0.0001], L_reward: [0.0001], NLL: [3.5654]
+INFO:dagger_server_running:Epoch: [0], Iter: [7], Lr: [0.000000], Loss: [2.1818], W_reward: [-0.0001], L_reward: [-0.0000], NLL: [2.9772]
+INFO:dagger_server_running:Epoch: [0], Iter: [8], Lr: [0.000000], Loss: [2.2239], W_reward: [0.0006], L_reward: [0.0001], NLL: [3.0620]
+INFO:dagger_server_running:Epoch: [0], Iter: [9], Lr: [0.000000], Loss: [2.3391], W_reward: [0.0009], L_reward: [0.0000], NLL: [3.2929]
+INFO:dagger_server_running:Epoch: [0], Iter: [10], Lr: [0.000000], Loss: [2.3391], W_reward: [0.0009], L_reward: [0.0000], NLL: [3.2929]
+INFO:dagger_server_running:Epoch: [0], Iter: [11], Lr: [0.000000], Loss: [2.2662], W_reward: [0.0007], L_reward: [0.0001], NLL: [3.1467]
+INFO:dagger_server_running:Epoch: [0], Iter: [12], Lr: [0.000000], Loss: [2.3775], W_reward: [0.0012], L_reward: [-0.0008], NLL: [3.3707]
+INFO:dagger_server_running:Epoch: [0], Iter: [13], Lr: [0.000000], Loss: [2.4517], W_reward: [0.0015], L_reward: [0.0018], NLL: [3.5168]
+INFO:dagger_server_running:Epoch: [0], Iter: [14], Lr: [0.000000], Loss: [2.2612], W_reward: [0.0018], L_reward: [0.0003], NLL: [3.1375]
+INFO:dagger_server_running:Epoch: [0], Iter: [15], Lr: [0.000001], Loss: [2.2183], W_reward: [0.0012], L_reward: [0.0000], NLL: [3.0514]
+INFO:dagger_server_running:Epoch: [0], Iter: [16], Lr: [0.000001], Loss: [2.3016], W_reward: [0.0021], L_reward: [0.0001], NLL: [3.2188]
+INFO:dagger_server_running:Epoch: [0], Iter: [17], Lr: [0.000001], Loss: [2.2226], W_reward: [0.0010], L_reward: [-0.0001], NLL: [3.0599]
+INFO:dagger_server_running:Epoch: [0], Iter: [18], Lr: [0.000001], Loss: [2.2557], W_reward: [0.0027], L_reward: [0.0004], NLL: [3.1273]
+INFO:dagger_server_running:Epoch: [0], Iter: [19], Lr: [0.000001], Loss: [2.3371], W_reward: [0.0030], L_reward: [-0.0011], NLL: [3.2919]
+INFO:dagger_server_running:Task: [1], Iter: [0], Obs: -= Welcome to TextWorld, ALFRED! =-
+
+You are in the middle of a room. Looking quickly around you, you see a bathtub 1, a bathtubbasin 1, a countertop 1, a shelf 1, a shelf 2, a sink 1, a sinkbasin 1, a handtowelholder 1, a handtowelholder 2, a toilet 1, a toiletpaperhanger 1, and a towelholder 1.
+
+Your task is to: Put a clean rag on the back of the toilet., VLM Action: you are in the middle of a room. looking quickly around you, you see a bathtub 1, a bathtubbasin 1, a countertop 1, a shelf 1, a shelf 2, a sink 1, a sinkbasin 1, a handtowelholder 1, a handtowelholder 2, a toilet 1, a toiletpaperhanger 1, and a towelholder 1, LLM Action: go to toilet 1
+INFO:dagger_server_running:Task: [1], Iter: [1], Obs: You are in the middle of a room. Looking quickly around you, you see nothing., VLM Action: you are in the middle of a room. looking quickly around you, you see nothing, LLM Action: go to countertop 1
+INFO:dagger_server_running:Task: [1], Iter: [2], Obs: You are in the middle of a room. Looking quickly around you, you see nothing., VLM Action: you are in the middle of a room. looking quickly around you, you see a bathtub 1, a bathtubbasin 1, a countertop 1, a shelf 1, a shelf 2, a sink 1, a sinkbasin 1, a handtowelholder 1, a handtowelholder 2, a toilet 1, a toiletpaperhanger 1, and a towelholder 1, LLM Action: go to countertop 1
+INFO:dagger_server_running:Task: [1], Iter: [3], Obs: You are in the middle of a room. Looking quickly around you, you see nothing., VLM Action: you are in the middle of a room. looking quickly around you, you see a bathtub 1, a bathtubbasin 1, a countertop 1, a shelf 1, a shelf 2, a sink 1, a sinkbasin 1, a handtowelholder 1, a handtowelholder 2, a toilet 1, a toiletpaperhanger 1, and a towelholder 1
+you are in the middle of a room. looking quickly around you, you see a bathtub 1, LLM Action: go to countertop 1
+INFO:dagger_server_running:Task: [1], Iter: [4], Obs: You are in the middle of a room. Looking quickly around you, you see nothing., VLM Action: you are in the middle of a room. looking quickly around you, you see a bathtub 1, a bathtubbasin 1, a countertop 1, a shelf 1, a shelf 2, a sink 1, a sinkbasin 1, a handtowelholder 1, a handtowelholder 2, a toilet 1, a toiletpaperhanger 1, and a towelholder 1
+you are in the middle of a room. looking quickly around you, you see a bathtub 1, LLM Action: go to countertop 1
+INFO:dagger_server_running:Task: [1], Iter: [5], Obs: You are in the middle of a room. Looking quickly around you, you see nothing., VLM Action: you are in the middle of a room. looking quickly around you, you see a bathtub 1, a bathtubbasin 1, a countertop 1, a shelf 1, a shelf 2, a sink 1, a sinkbasin 1, a handtowelholder 1, a handtowelholder 2, a toilet 1, a toiletpaperhanger 1, and a towelholder 1\nyou are in the middle of a room. looking quickly around you, you see a bathtub, LLM Action: go to countertop 1
+INFO:dagger_server_running:Task: [1], Iter: [6], Obs: You are in the middle of a room. Looking quickly around you, you see nothing., VLM Action: you are in the middle of a room. looking quickly around you, you see a bathtub 1, a bathtubbasin 1, a countertop 1, a shelf 1, a shelf 2, a sink 1, a sinkbasin 1, a handtowelholder 1, a handtowelholder 2, a toilet 1, a toiletpaperhanger 1, and a towelholder 1
+you are in the middle of a room. looking quickly around you, you see a bathtub 1, LLM Action: go to countertop 1
+INFO:dagger_server_running:Task: [1], Iter: [7], Obs: You are in the middle of a room. Looking quickly around you, you see nothing., VLM Action: you are in the middle of a room. looking quickly around you, you see a bathtub 1, a bathtubbasin 1, a countertop 1, a shelf 1, a shelf 2, a sink 1, a sinkbasin 1, a handtowelholder 1, a handtowelholder 2, a toilet 1, a toiletpaperhanger 1, and a towelholder 1\nyou are in the middle of a room. looking quickly around you, you see a bathtub, LLM Action: go to countertop 1
+INFO:dagger_server_running:Task: [1], Iter: [8], Obs: You are in the middle of a room. Looking quickly around you, you see nothing., VLM Action: you are in the middle of a room. looking quickly around you, you see a bathtub 1, a bathtubbasin 1, a countertop 1, a shelf 1, a shelf 2, a sink 1, a sinkbasin 1, a handtowelholder 1, a handtowelholder 2, a toilet 1, a toiletpaperhanger 1, and a towelholder 1\nyou are in the middle of a room. looking quickly around you, you see a bathtub, LLM Action: go to countertop 1
+INFO:dagger_server_running:Task: [1], Iter: [9], Obs: You are in the middle of a room. Looking quickly around you, you see nothing., VLM Action: you are in the middle of a room. looking quickly around you, you see a bathtub 1, a bathtubbasin 1, a countertop 1, a shelf 1, a shelf 2, a sink 1, a sinkbasin 1, a handtowelholder 1, a handtowelholder 2, a toilet 1, a toiletpaperhanger 1, and a towelholder 1\nyou are in the middle of a room. looking quickly around you, you see a bathtub, LLM Action: go to countertop 1
+INFO:dagger_server_running:Task: [1], Iter: [10], Obs: You are in the middle of a room. Looking quickly around you, you see nothing., VLM Action: you are in the middle of a room. looking quickly around you, you see a bathtub 1, a bathtubbasin 1, a countertop 1, a shelf 1, a shelf 2, a sink 1, a sinkbasin 1, a handtowelholder 1, a handtowelholder 2, a toilet 1, a toiletpaperhanger 1, and a towelholder 1\nyou are in the middle of a room. looking quickly around you, you see a bathtub, LLM Action: go to countertop 1
+INFO:dagger_server_running:Task: [1], Iter: [11], Obs: You are in the middle of a room. Looking quickly around you, you see nothing., VLM Action: you are in the middle of a room. looking quickly around you, you see a bathtub 1, a bathtubbasin 1, a countertop 1, a shelf 1, a shelf 2, a sink 1, a sinkbasin 1, a handtowelholder 1, a handtowelholder 2, a toilet 1, a toiletpaperhanger 1, and a towelholder 1\\nyou are in the middle of a room. looking quickly around you, you see a bathtub, LLM Action: go to countertop 1
+INFO:dagger_server_running:Task: [1], Iter: [12], Obs: You are in the middle of a room. Looking quickly around you, you see nothing., VLM Action: you are in the middle of a room. looking quickly around you, you see a bathtub 1, a bathtubbasin 1, a countertop 1, a shelf 1, a shelf 2, a sink 1, a sinkbasin 1, a handtowelholder 1, a handtowelholder 2, a toilet 1, a toiletpaperhanger 1, and a towelholder 1\\nyou are in the middle of a room. looking quickly around you, you see a bathtub, LLM Action: go to countertop 1
+INFO:dagger_server_running:Task: [1], Iter: [13], Obs: You are in the middle of a room. Looking quickly around you, you see nothing., VLM Action: you are in the middle of a room. looking quickly around you, you see a bathtub 1, a bathtubbasin 1, a countertop 1, a shelf 1, a shelf 2, a sink 1, a sinkbasin 1, a handtowelholder 1, a handtowelholder 2, a toilet 1, a toiletpaperhanger 1, and a towelholder 1\\nyou are in the middle of a room. looking quickly around you, you see a bathtub, LLM Action: go to countertop 1
+INFO:dagger_server_running:Task: [1], Iter: [14], Obs: You are in the middle of a room. Looking quickly around you, you see nothing., VLM Action: you are in the middle of a room. looking quickly around you, you see a bathtub 1, a bathtubbasin 1, a countertop 1, a shelf 1, a shelf 2, a sink 1, a sinkbasin 1, a handtowelholder 1, a handtowelholder 2, a toilet 1, a toiletpaperhanger 1, and a towelholder 1, LLM Action: go to countertop 1
+INFO:dagger_server_running:Task: [1], Iter: [15], Obs: You are in the middle of a room. Looking quickly around you, you see nothing., VLM Action: you are in the middle of a room. looking quickly around you, you see a bathtub 1, a bathtubbasin 1, a countertop 1, a shelf 1, a shelf 1, a handtowelholder 1, a toilet 1, a toiletpaperhanger 1, a towelholder 1, a handtowelholder 1, a toiletpaperhanger 1, a towelholder 1, a handtowelholder 1, a toiletpaperhanger 1, LLM Action: go to countertop 1
+INFO:dagger_server_running:Task: [1], Iter: [16], Obs: You are in the middle of a room. Looking quickly around you, you see nothing., VLM Action: you are in the middle of a room, LLM Action: go to countertop 1
+INFO:dagger_server_running:Task: [1], Iter: [17], Obs: Nothing happens., VLM Action: you are in the middle of a room, LLM Action: go to countertop 1
+INFO:dagger_server_running:Task: [1], Iter: [18], Obs: Nothing happens., VLM Action: nothing, LLM Action: go to countertop 1
+INFO:dagger_server_running:Task: [1], Iter: [19], Obs: Nothing happens., VLM Action: you are in the middle of a room, LLM Action: go to countertop 1
+INFO:dagger_server_running:Task: [1], Iter: [20], Obs: Nothing happens., VLM Action: nothing, LLM Action: go to countertop 1
+INFO:dagger_server_running:Task: [1], Iter: [21], Obs: Nothing happens., VLM Action: nothing.
+> nothing.
+> nothing.
+> nothing.
+> nothing.
+> nothing.
+> nothing.
+> nothing, LLM Action: go to countertop 1
+INFO:dagger_server_running:Task: [1], Iter: [22], Obs: Nothing happens., VLM Action: nothing> nothing> nothing> nothing> nothing> nothing> nothing> nothing> nothing.
+> nothing.
+> nothing.
+you, a hand, LLM Action: go to countertop 1
+INFO:dagger_server_running:Task: [1], Iter: [23], Obs: Nothing happens., VLM Action: you, a hand, a hand, a hand, a hand, a hand, LLM Action: go to countertop 1
+INFO:dagger_server_running:Task: [1], Iter: [24], Obs: Nothing happens., VLM Action: you, a hand, a hand, LLM Action: go to countertop 1
+INFO:dagger_server_running:Task: [1], Iter: [25], Obs: Nothing happens., VLM Action: you, a hand, LLM Action: go to countertop 1
+INFO:dagger_server_running:Task: [1], Iter: [26], Obs: Nothing happens., VLM Action: you, a hand, LLM Action: go to countertop 1
+INFO:dagger_server_running:Task: [1], Iter: [27], Obs: Nothing happens., VLM Action: you, LLM Action: go to countertop 1
+INFO:dagger_server_running:Task: [1], Iter: [28], Obs: Nothing happens., VLM Action: you, a hand, a hand, a hand, a hand, a hand, a hand, a hand, a hand, a hand, a hand, a hand, a hand, a hand, a hand, a hand, LLM Action: go to countertop 1
+INFO:dagger_server_running:Task: [1], Iter: [29], Obs: Nothing happens., VLM Action: a hand, LLM Action: go to countertop 1
+INFO:dagger_server_running:Task: [1], Iter: [30], Obs: Nothing happens., VLM Action: a hand, a, a hand, a hand, a, a hand, a hand, a hand, a hand, a, a, a, a, a, a, a hand, a hand, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, LLM Action: go to countertop 1
+INFO:dagger_server_running:Task: [1], Iter: [31], Obs: Nothing happens., VLM Action: a, a, a, a, a, and, and, and, and, and, and, and, and, and, and, and, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, and, and, and, and, and, and, and, and, a, a, a, a, and, and, LLM Action: go to countertop 1
+INFO:dagger_server_running:Task: [1], Iter: [32], Obs: Nothing happens., VLM Action: and, LLM Action: go to countertop 1
+INFO:dagger_server_running:Task: [1], Iter: [33], Obs: Nothing happens., VLM Action: and, LLM Action: go to countertop 1
+INFO:dagger_server_running:Task: [1], Iter: [34], Obs: Nothing happens., VLM Action: and, LLM Action: go to countertop 1
+INFO:dagger_server_running:Task: [1], Iter: [35], Obs: Nothing happens., VLM Action: and, LLM Action: go to countertop 1
+INFO:dagger_server_running:Task: [1], Iter: [36], Obs: Nothing happens., VLM Action: and, LLM Action: go to countertop 1
+INFO:dagger_server_running:Task: [1], Iter: [37], Obs: Nothing happens., VLM Action: and, LLM Action: go to countertop 1
+INFO:dagger_server_running:Task: [1], Iter: [38], Obs: Nothing happens., VLM Action: and, LLM Action: go to countertop 1
+INFO:dagger_server_running:Task: [1], Iter: [39], Obs: Nothing happens., VLM Action: to, to, to, to, to, to, to, to, to, to, to, to, to, and, and, and, and, LLM Action: go to countertop 1
+INFO:dagger_server_running:Task: [1], Iter: [40], Obs: Nothing happens., VLM Action: a, LLM Action: go to countertop 1
+INFO:dagger_server_running:Task: [1], Iter: [41], Obs: Nothing happens., VLM Action: it, it, LLM Action: go to countertop 1
+INFO:dagger_server_running:Task: [1], Iter: [42], Obs: Nothing happens., VLM Action: it, LLM Action: go to countertop 1
+INFO:dagger_server_running:Task: [1], Iter: [43], Obs: Nothing happens., VLM Action: [, [,, LLM Action: go to countertop 1
+INFO:dagger_server_running:Task: [1], Iter: [44], Obs: Nothing happens., VLM Action: it, LLM Action: go to countertop 1
+INFO:dagger_server_running:Task: [1], Iter: [45], Obs: Nothing happens., VLM Action: you, LLM Action: go to countertop 1
+INFO:dagger_server_running:Task: [1], Iter: [46], Obs: Nothing happens., VLM Action: you, LLM Action: go to countertop 1
+INFO:dagger_server_running:Task: [1], Iter: [47], Obs: Nothing happens., VLM Action: you, LLM Action: go to countertop 1
+INFO:dagger_server_running:Task: [1], Iter: [48], Obs: Nothing happens., VLM Action: it, and, and, LLM Action: go to countertop 1
+INFO:dagger_server_running:Task: [1], Iter: [49], Obs: Nothing happens., VLM Action: and, LLM Action: go to countertop 1
+INFO:dagger_server_running:Task: [1], Iter: [50], Obs: Nothing happens., VLM Action: for, LLM Action: go to countertop 1
+INFO:dagger_server_running:*************Start Training*************
+INFO:dagger_server_running:Epoch: [0], Iter: [20], Lr: [0.000001], Loss: [2.3693], W_reward: [0.0043], L_reward: [0.0013], NLL: [3.3552]
+INFO:dagger_server_running:Epoch: [0], Iter: [21], Lr: [0.000001], Loss: [2.4338], W_reward: [0.0027], L_reward: [0.0015], NLL: [3.4825]
+INFO:dagger_server_running:Epoch: [0], Iter: [22], Lr: [0.000001], Loss: [2.2188], W_reward: [0.0019], L_reward: [0.0002], NLL: [3.0530]
+INFO:dagger_server_running:Epoch: [0], Iter: [23], Lr: [0.000001], Loss: [2.3707], W_reward: [0.0024], L_reward: [0.0001], NLL: [3.3574]
+INFO:dagger_server_running:Epoch: [0], Iter: [24], Lr: [0.000001], Loss: [2.4017], W_reward: [0.0025], L_reward: [0.0000], NLL: [3.4195]
+INFO:dagger_server_running:Epoch: [0], Iter: [25], Lr: [0.000001], Loss: [2.1472], W_reward: [0.0054], L_reward: [0.0014], NLL: [2.9120]
+INFO:dagger_server_running:Epoch: [0], Iter: [26], Lr: [0.000001], Loss: [2.3325], W_reward: [0.0049], L_reward: [0.0000], NLL: [3.2835]
+INFO:dagger_server_running:Epoch: [0], Iter: [27], Lr: [0.000001], Loss: [2.3542], W_reward: [0.0028], L_reward: [0.0005], NLL: [3.3244]
+INFO:dagger_server_running:Epoch: [0], Iter: [28], Lr: [0.000001], Loss: [2.3576], W_reward: [0.0038], L_reward: [0.0000], NLL: [3.3328]
+INFO:dagger_server_running:Epoch: [0], Iter: [29], Lr: [0.000001], Loss: [2.2763], W_reward: [0.0066], L_reward: [0.0003], NLL: [3.1726]
+INFO:dagger_server_running:Epoch: [0], Iter: [30], Lr: [0.000001], Loss: [2.4109], W_reward: [0.0073], L_reward: [0.0006], NLL: [3.4422]
+INFO:dagger_server_running:Epoch: [0], Iter: [31], Lr: [0.000001], Loss: [2.3857], W_reward: [0.0067], L_reward: [-0.0002], NLL: [3.3919]
+INFO:dagger_server_running:Epoch: [0], Iter: [32], Lr: [0.000001], Loss: [2.3946], W_reward: [0.0083], L_reward: [0.0001], NLL: [3.4110]
+INFO:dagger_server_running:Epoch: [0], Iter: [33], Lr: [0.000001], Loss: [2.4035], W_reward: [0.0056], L_reward: [0.0001], NLL: [3.4263]
+INFO:dagger_server_running:Epoch: [0], Iter: [34], Lr: [0.000001], Loss: [2.3627], W_reward: [0.0103], L_reward: [0.0037], NLL: [3.3458]
+INFO:dagger_server_running:Epoch: [0], Iter: [35], Lr: [0.000001], Loss: [2.3973], W_reward: [0.0076], L_reward: [0.0013], NLL: [3.4145]
+INFO:dagger_server_running:Epoch: [0], Iter: [36], Lr: [0.000001], Loss: [2.3851], W_reward: [0.0057], L_reward: [0.0000], NLL: [3.3895]
+INFO:dagger_server_running:Epoch: [0], Iter: [37], Lr: [0.000001], Loss: [2.3457], W_reward: [0.0052], L_reward: [-0.0000], NLL: [3.3105]
+INFO:dagger_server_running:Epoch: [0], Iter: [38], Lr: [0.000001], Loss: [2.3318], W_reward: [0.0063], L_reward: [0.0000], NLL: [3.2835]
+INFO:dagger_server_running:Epoch: [0], Iter: [39], Lr: [0.000001], Loss: [2.3038], W_reward: [0.0065], L_reward: [0.0001], NLL: [3.2277]
+INFO:dagger_server_running:Task: [2], Iter: [0], Obs: -= Welcome to TextWorld, ALFRED! =-
+
+You are in the middle of a room. Looking quickly around you, you see a bathtub 1, a bathtubbasin 1, a countertop 1, a shelf 1, a shelf 2, a sink 1, a sinkbasin 1, a handtowelholder 1, a handtowelholder 2, a toilet 1, a toiletpaperhanger 1, and a towelholder 1.
+
+Your task is to: Put the clean cloth on the tank, VLM Action: you are in the middle of a room. looking quickly around you, you see a bathtub 1, a bathtubbasin 1, a countertop 1, a shelf 1, a shelf 2, a sink 1, a sinkbasin 1, a handtowelholder 1, a handtowelholder 2, a toilet 1, a toiletpaperhanger 1, and a towelholder 1, LLM Action: go to toilet 1
+INFO:dagger_server_running:Task: [2], Iter: [1], Obs: You are in the middle of a room. Looking quickly around you, you see nothing., VLM Action: you are in the middle of a room. looking quickly around you, you see nothing, LLM Action: go to countertop 1
+INFO:dagger_server_running:Task: [2], Iter: [2], Obs: You are in the middle of a room. Looking quickly around you, you see nothing., VLM Action: you are in the middle of a room. looking quickly around you, you see nothing, LLM Action: go to countertop 1
+INFO:dagger_server_running:Task: [2], Iter: [3], Obs: You are in the middle of a room. Looking quickly around you, you see nothing., VLM Action: you are in the middle of a room. looking quickly around you, you see nothing, LLM Action: go to countertop 1
+INFO:dagger_server_running:Task: [2], Iter: [4], Obs: You are in the middle of a room. Looking quickly around you, you see nothing., VLM Action: you are in the middle of a room. looking quickly around you, you see nothing.
+you are in the middle of a room. looking quickly around you, you see nothing.
+> you are in the middle of a room. looking quickly around you, you see nothing.
+you are in the middle of a room. looking quickly around you, you see nothing.
+> you are in the middle of a room. looking quickly around you, you see nothing.
+you are in the middle of a room. looking quickly around you, you see nothing.
+> you are in the middle of a room, LLM Action: go to countertop 1
+INFO:dagger_server_running:Task: [2], Iter: [5], Obs: You are in the middle of a room. Looking quickly around you, you see nothing., VLM Action: you are in the middle of a room. looking quickly around you, you see nothing, LLM Action: go to countertop 1
+INFO:dagger_server_running:Task: [2], Iter: [6], Obs: You are in the middle of a room. Looking quickly around you, you see nothing., VLM Action: you are in the middle of a room. looking quickly around you, you see nothing, LLM Action: go to countertop 1
+INFO:dagger_server_running:Task: [2], Iter: [7], Obs: You are in the middle of a room. Looking quickly around you, you see nothing., VLM Action: you are in the middle of a room. looking quickly around you, you see nothing
+you are in the middle of a room. looking quickly around you, you see nothing.
+> you are in the middle of a room. looking quickly around you, you see nothing
+you are in the middle of a room. looking quickly around you, you see nothing.
+> you are in the middle of a room. looking quickly around you, you see nothing
+you are in the middle of a room. looking quickly around you, you see nothing.
+> you are in the middle of a room. looking quickly, LLM Action: go to countertop 1
+INFO:dagger_server_running:Task: [2], Iter: [8], Obs: You are in the middle of a room. Looking quickly around you, you see nothing., VLM Action: you are in the middle of a room. looking quickly around you, you see nothing
+you are in the middle of a room. looking quickly around you, you see nothing.
+> you are in the middle of a room. looking quickly around you, you see nothing
+you are in the middle of a room. looking quickly around you, you see nothing.
+> you are in the middle of a room. looking quickly around you, you see nothing
+you are in the middle of a room. looking quickly around you, you see nothing.
+> you are in the middle of a room. looking quickly, LLM Action: go to countertop 1
+INFO:dagger_server_running:Task: [2], Iter: [9], Obs: You are in the middle of a room. Looking quickly around you, you see nothing., VLM Action: you are in the middle of a room. looking quickly around you, you see nothing
+you are in the middle of a room. looking quickly around you, you see nothing.
+> you are in the middle of a room. looking quickly around you, you see nothing
+you are in the middle of a room. looking quickly around you, you see nothing.
+> you are in the middle of a room. looking quickly around you, you see nothing
+you are in the middle of a room. looking quickly around you, you see nothing.
+> you are in the middle of a room. looking quickly, LLM Action: go to countertop 1
+INFO:dagger_server_running:Task: [2], Iter: [10], Obs: You are in the middle of a room. Looking quickly around you, you see nothing., VLM Action: you are in the middle of a room. looking quickly around you, you see nothing\nyou are in the middle of a room. looking quickly around you, you see nothing.\n> you are in the middle of a room. looking quickly around you, you see nothing\nyou are in the middle of a room. looking quickly around you, you see nothing.\n> you are in the middle of a room. looking quickly
+you are in the middle of a room. looking quickly around you, you see nothing.
+> you are in the middle of a room. looking quickly around you, you, LLM Action: go to countertop 1
+INFO:dagger_server_running:Task: [2], Iter: [11], Obs: You are in the middle of a room. Looking quickly around you, you see nothing., VLM Action: you are in the middle of a room. looking quickly around you, you see nothing, LLM Action: go to countertop 1
+INFO:dagger_server_running:Task: [2], Iter: [12], Obs: You are in the middle of a room. Looking quickly around you, you see nothing., VLM Action: you are in the middle of a room. looking quickly around you, you see nothing
+you are in the middle of a room. looking quickly around you, you see nothing.
+> you are in the middle of a room. looking quickly around you, you see nothing
+you are in the middle of a room. looking quickly around you, you see nothing.
+> you are in the middle of a room. looking quickly around you, you see nothing
+you are in the middle of a room. looking quickly around you, you see nothing.
+> you are in the middle of a room. looking quickly, LLM Action: go to countertop 1
+INFO:dagger_server_running:Task: [2], Iter: [13], Obs: You are in the middle of a room. Looking quickly around you, you see nothing., VLM Action: you are in the middle of a room. looking quickly around you, you see nothing
+you are in the middle of a room. looking quickly around you, you see nothing.
+> you are in the middle of a room. looking quickly around you, you see nothing
+you are in the middle of a room. looking quickly around you, you see nothing.
+> you are in the middle of a room. looking quickly around you, you see nothing
+you are in the middle of a room. looking quickly around you, you see nothing.
+> you are in the middle of a room. looking quickly, LLM Action: go to countertop 1
+INFO:dagger_server_running:Task: [2], Iter: [14], Obs: You are in the middle of a room. Looking quickly around you, you see nothing., VLM Action: you are in the middle of a room. looking quickly around you, you see nothing\nyou are in the middle of a room. looking quickly around you, you see nothing.\n> you are in the middle of a room. looking quickly around you, you see nothing\nyou are in the middle of a room. looking quickly around you, you see nothing.\n> you are in the middle of a room. looking quickly
+you are in the middle of a room. looking quickly around you, you see nothing.
+> you are in the middle of a room. looking quickly around you, you, LLM Action: go to countertop 1
+INFO:dagger_server_running:Task: [2], Iter: [15], Obs: You are in the middle of a room. Looking quickly around you, you see nothing., VLM Action: you are in the middle of a room. looking quickly around you, you see nothing, LLM Action: go to countertop 1
+INFO:dagger_server_running:Task: [2], Iter: [16], Obs: You are in the middle of a room. Looking quickly around you, you see nothing., VLM Action: you are in the middle of a room. looking quickly around you, you see nothing
+you are in the middle of a room. looking quickly around you, you see nothing.
+> you are in the middle of a room. looking quickly around you, you see nothing
+you are in the middle of a room. looking quickly around you, you see nothing.
+> you are in the middle of a room. looking quickly around you, you see nothing
+you are in the middle of a room. looking quickly around you, you see nothing.
+> you are in the middle of a room. looking quickly, LLM Action: go to countertop 1
+INFO:dagger_server_running:Task: [2], Iter: [17], Obs: You are in the middle of a room. Looking quickly around you, you see nothing., VLM Action: you are in the middle of a room. looking quickly around you, you see nothing, LLM Action: go to countertop 1
+INFO:dagger_server_running:Task: [2], Iter: [18], Obs: You are in the middle of a room. Looking quickly around you, you see nothing., VLM Action: you are in the middle of a room. looking quickly around you, you see nothing
+you are in the middle of a room. looking quickly around you, you see nothing.
+> you are in the middle of a room. looking quickly around you, you see nothing
+you are in the middle of a room. looking quickly around you, you see nothing.
+> you are in the middle of a room. looking quickly around you, you see nothing
+you are in the middle of a room. looking quickly around you, you see nothing.
+> you are in the middle of a room. looking quickly, LLM Action: go to countertop 1
+INFO:dagger_server_running:Task: [2], Iter: [19], Obs: You are in the middle of a room. Looking quickly around you, you see nothing., VLM Action: you are in the middle of a room. looking quickly around you, you see nothing, LLM Action: go to countertop 1
+INFO:dagger_server_running:Task: [2], Iter: [20], Obs: You are in the middle of a room. Looking quickly around you, you see nothing., VLM Action: you are in the middle of a room. looking quickly, LLM Action: go to countertop 1
+INFO:dagger_server_running:Task: [2], Iter: [21], Obs: You are in the middle of a room. Looking quickly around you, you see nothing., VLM Action: you are in the middle of a room. looking quickly, LLM Action: go to countertop 1
+INFO:dagger_server_running:Task: [2], Iter: [22], Obs: You are in the middle of a room. Looking quickly around you, you see nothing., VLM Action: you are in the middle of a room. looking quickly
+you are in the middle of a room. looking quickly
+> you are in the middle of a room. looking quickly
+> you are in the middle of a room. looking quickly
+> you are in the middle of a room. looking quickly
+> you are in the middle of a room. looking quickly
+> you are in the middle of a room, LLM Action: go to countertop 1
+INFO:dagger_server_running:Task: [2], Iter: [23], Obs: You are in the middle of a room. Looking quickly around you, you see nothing., VLM Action: you are in the middle of a room, LLM Action: go to countertop 1
+INFO:dagger_server_running:Task: [2], Iter: [24], Obs: Nothing happens., VLM Action: you are in the middle of a room, LLM Action: go to countertop 1
+INFO:dagger_server_running:Task: [2], Iter: [25], Obs: Nothing happens., VLM Action: you are in the middle of a room, LLM Action: go to countertop 1
+INFO:dagger_server_running:Task: [2], Iter: [26], Obs: Nothing happens., VLM Action: you are in the middle of a room, LLM Action: go to countertop 1
+INFO:dagger_server_running:Task: [2], Iter: [27], Obs: Nothing happens., VLM Action: you are in the middle of a room, LLM Action: go to countertop 1
+INFO:dagger_server_running:Task: [2], Iter: [28], Obs: Nothing happens., VLM Action: you are in the middle of a room, LLM Action: go to countertop 1
+INFO:dagger_server_running:Task: [2], Iter: [29], Obs: Nothing happens., VLM Action: nothing, LLM Action: go to countertop 1
+INFO:dagger_server_running:Task: [2], Iter: [30], Obs: Nothing happens., VLM Action: nothing, LLM Action: go to countertop 1
+INFO:dagger_server_running:Task: [2], Iter: [31], Obs: Nothing happens., VLM Action: nothing, a room, LLM Action: go to countertop 1
+INFO:dagger_server_running:Task: [2], Iter: [32], Obs: Nothing happens., VLM Action: nothing, a room, a bath, a room, a room, a room, a room, a room, a room, a room, a room, a room, a room, a room, a room, a room, a room, a room, a room, a room, a room, a room, LLM Action: go to countertop 1
+INFO:dagger_server_running:Task: [2], Iter: [33], Obs: Nothing happens., VLM Action: a room, a room, LLM Action: go to countertop 1
+INFO:dagger_server_running:Task: [2], Iter: [34], Obs: Nothing happens., VLM Action: a room, a room, a room, LLM Action: go to countertop 1
+INFO:dagger_server_running:Task: [2], Iter: [35], Obs: Nothing happens., VLM Action: a room, a room, a room, a room, a room, a room, a room, a room, a room, a room, a room, a room, a room, a room, a room, a room, a room, a room, a room, a room, a room, a room, a room, a room, a room, a room, LLM Action: go to countertop 1
+INFO:dagger_server_running:Task: [2], Iter: [36], Obs: Nothing happens., VLM Action: a room, a room, LLM Action: go to countertop 1
+INFO:dagger_server_running:Task: [2], Iter: [37], Obs: Nothing happens., VLM Action: a room, a room, a room, a room, a room, a room, a room, a room, a, a room, a room, a, a room, a room, a, a room, a room, a, a room, a, a room, a room, a room, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, LLM Action: go to countertop 1
+INFO:dagger_server_running:Task: [2], Iter: [38], Obs: Nothing happens., VLM Action: you, a, and a, and, and, and, and it, and it, and, and, and, and, and, and, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, LLM Action: go to countertop 1
+INFO:dagger_server_running:Task: [2], Iter: [39], Obs: Nothing happens., VLM Action: a, a, a, a, LLM Action: go to countertop 1
+INFO:dagger_server_running:Task: [2], Iter: [40], Obs: Nothing happens., VLM Action: a, LLM Action: go to countertop 1
+INFO:dagger_server_running:Task: [2], Iter: [41], Obs: Nothing happens., VLM Action: and, LLM Action: go to countertop 1
+INFO:dagger_server_running:Task: [2], Iter: [42], Obs: Nothing happens., VLM Action: and, and, and, and, LLM Action: go to countertop 1
+INFO:dagger_server_running:Task: [2], Iter: [43], Obs: Nothing happens., VLM Action: and, LLM Action: go to countertop 1
+INFO:dagger_server_running:Task: [2], Iter: [44], Obs: Nothing happens., VLM Action: , LLM Action: go to countertop 1
+INFO:dagger_server_running:Task: [2], Iter: [45], Obs: Nothing happens., VLM Action: and, LLM Action: go to countertop 1
+INFO:dagger_server_running:Task: [2], Iter: [46], Obs: Nothing happens., VLM Action: and, LLM Action: go to countertop 1
+INFO:dagger_server_running:Task: [2], Iter: [47], Obs: Nothing happens., VLM Action: and, LLM Action: go to countertop 1
+INFO:dagger_server_running:Task: [2], Iter: [48], Obs: Nothing happens., VLM Action: and, and, LLM Action: go to countertop 1
+INFO:dagger_server_running:Task: [2], Iter: [49], Obs: Nothing happens., VLM Action: and, LLM Action: go to countertop 1
+INFO:dagger_server_running:Task: [2], Iter: [50], Obs: Nothing happens., VLM Action: and, LLM Action: go to countertop 1
+INFO:dagger_server_running:*************Start Training*************
+INFO:dagger_server_running:Epoch: [0], Iter: [40], Lr: [0.000001], Loss: [2.4954], W_reward: [0.0091], L_reward: [0.0022], NLL: [3.6114]
+INFO:dagger_server_running:Epoch: [0], Iter: [41], Lr: [0.000001], Loss: [2.2362], W_reward: [0.0083], L_reward: [0.0006], NLL: [3.0939]
+INFO:dagger_server_running:Epoch: [0], Iter: [42], Lr: [0.000001], Loss: [2.1703], W_reward: [0.0088], L_reward: [0.0001], NLL: [2.9629]
+INFO:dagger_server_running:Epoch: [0], Iter: [43], Lr: [0.000001], Loss: [2.3349], W_reward: [0.0092], L_reward: [0.0002], NLL: [3.2924]
+INFO:dagger_server_running:Epoch: [0], Iter: [44], Lr: [0.000001], Loss: [3.2298], W_reward: [0.0084], L_reward: [0.0017], NLL: [5.0800]
+INFO:dagger_server_running:Epoch: [0], Iter: [45], Lr: [0.000002], Loss: [2.4850], W_reward: [0.0109], L_reward: [0.0019], NLL: [3.5928]
+INFO:dagger_server_running:Epoch: [0], Iter: [46], Lr: [0.000002], Loss: [3.4151], W_reward: [0.0058], L_reward: [0.0001], NLL: [5.4496]
+INFO:dagger_server_running:Epoch: [0], Iter: [47], Lr: [0.000002], Loss: [2.0911], W_reward: [0.0157], L_reward: [0.0043], NLL: [2.8073]
+INFO:dagger_server_running:Epoch: [0], Iter: [48], Lr: [0.000002], Loss: [2.2973], W_reward: [0.0121], L_reward: [-0.0024], NLL: [3.2227]
+INFO:dagger_server_running:Epoch: [0], Iter: [49], Lr: [0.000002], Loss: [2.1419], W_reward: [0.0093], L_reward: [-0.0004], NLL: [2.9073]
+INFO:dagger_server_running:Epoch: [0], Iter: [50], Lr: [0.000002], Loss: [3.2188], W_reward: [0.0124], L_reward: [-0.0047], NLL: [5.0683]
+INFO:dagger_server_running:Epoch: [0], Iter: [51], Lr: [0.000002], Loss: [2.3509], W_reward: [0.0186], L_reward: [0.0054], NLL: [3.3287]
+INFO:dagger_server_running:Epoch: [0], Iter: [52], Lr: [0.000002], Loss: [2.3469], W_reward: [0.0128], L_reward: [0.0002], NLL: [3.3201]
+INFO:dagger_server_running:Epoch: [0], Iter: [53], Lr: [0.000002], Loss: [2.3249], W_reward: [0.0156], L_reward: [0.0003], NLL: [3.2787]
+INFO:dagger_server_running:Epoch: [0], Iter: [54], Lr: [0.000002], Loss: [2.3499], W_reward: [0.0124], L_reward: [0.0002], NLL: [3.3257]
+INFO:dagger_server_running:Epoch: [0], Iter: [55], Lr: [0.000002], Loss: [2.3404], W_reward: [0.0214], L_reward: [0.0065], NLL: [3.3094]
+INFO:dagger_server_running:Epoch: [0], Iter: [56], Lr: [0.000002], Loss: [2.1540], W_reward: [0.0135], L_reward: [0.0008], NLL: [2.9344]
+INFO:dagger_server_running:Epoch: [0], Iter: [57], Lr: [0.000002], Loss: [3.1831], W_reward: [0.0130], L_reward: [0.0034], NLL: [4.9894]
+INFO:dagger_server_running:Epoch: [0], Iter: [58], Lr: [0.000002], Loss: [2.3343], W_reward: [0.0259], L_reward: [0.0068], NLL: [3.3014]
+INFO:dagger_server_running:Epoch: [0], Iter: [59], Lr: [0.000002], Loss: [2.3001], W_reward: [0.0254], L_reward: [0.0050], NLL: [3.2343]
+INFO:dagger_server_running:Task: [0], Iter: [0], Obs: -= Welcome to TextWorld, ALFRED! =-
+
+You are in the middle of a room. Looking quickly around you, you see a bathtub 1, a bathtubbasin 1, a countertop 1, a shelf 1, a shelf 2, a sink 1, a sinkbasin 1, a handtowelholder 1, a handtowelholder 2, a toilet 1, a toiletpaperhanger 1, and a towelholder 1.
+
+Your task is to: place a clean wash cloth on top of the back side of the toilet, VLM Action: 1, a toiletpaperhanger 1, and a towelholder 1, LLM Action: go to countertop 1
+INFO:dagger_server_running:Task: [0], Iter: [1], Obs: Nothing happens., VLM Action: 1, a toiletpaperhanger 1, and a towelholder 1, LLM Action: go to countertop 1
+INFO:dagger_server_running:Task: [0], Iter: [2], Obs: Nothing happens., VLM Action: 1, a toiletpaperhanger 1, and a towelholder 1, LLM Action: go to countertop 1
+INFO:dagger_server_running:Task: [0], Iter: [3], Obs: Nothing happens., VLM Action: 1, a toiletpaperhanger 1, and a towelholder 1, LLM Action: go to countertop 1
+INFO:dagger_server_running:Task: [0], Iter: [4], Obs: Nothing happens., VLM Action: 1, a toiletpaperhanger 1, and a towelholder 1, LLM Action: go to countertop 1
+INFO:dagger_server_running:Task: [0], Iter: [5], Obs: Nothing happens., VLM Action: 1, a toiletpaperhanger 1, and a towelholder 1, LLM Action: go to countertop 1
+INFO:dagger_server_running:Task: [0], Iter: [6], Obs: Nothing happens., VLM Action: 1, a toiletpaperhanger 1, and a towelholder 1, LLM Action: go to countertop 1
+INFO:dagger_server_running:Task: [0], Iter: [7], Obs: Nothing happens., VLM Action: 1, a toiletpaperhanger 1, and a towelholder 1, LLM Action: go to countertop 1
+INFO:dagger_server_running:Task: [0], Iter: [8], Obs: Nothing happens., VLM Action: 1, a toiletpaperhanger 1, and a towelholder 1, LLM Action: go to countertop 1
+INFO:dagger_server_running:Task: [0], Iter: [9], Obs: Nothing happens., VLM Action: 1, a toiletpaperhanger 1, and a towelholder 1, LLM Action: go to countertop 1
+INFO:dagger_server_running:Task: [0], Iter: [10], Obs: Nothing happens., VLM Action: 1, a toiletpaperhanger 1, and a towelholder 1, LLM Action: go to countertop 1
+INFO:dagger_server_running:Task: [0], Iter: [11], Obs: Nothing happens., VLM Action: 1, a toiletpaperhanger 1, and a towelholder 1
+nothing happens.
+> 1, a toiletpaperhanger 1, and a towelholder 1
+nothing happens.
+> 1, a toiletpaperhanger 1, and a towelholder 1
+nothing happens.
+> 1, a toiletpaperhanger 1, and a towelholder 1
+nothing happens.
+> 1, a toiletpaperhanger 1, and a towelholder 1, LLM Action: go to countertop 1
+INFO:dagger_server_running:Task: [0], Iter: [12], Obs: Nothing happens., VLM Action: 1, a toiletpaperhanger 1, and a towelholder 1
+nothing happens.
+> 1, a toiletpaperhanger 1, and a towelholder 1
+nothing happens.
+> 1, a toiletpaperhanger 1, and a towelholder 1
+nothing happens.
+> 1, a toiletpaperhanger 1, and a towelholder 1
+nothing happens.
+> 1, a toiletpaperhanger 1, and a towelholder 1, LLM Action: go to countertop 1
+INFO:dagger_server_running:Task: [0], Iter: [13], Obs: Nothing happens., VLM Action: 1, a toiletpaperhanger 1, and a towelholder 1\nnothing happens.\n> 1, a toiletpaperhanger 1, and a towelholder 1\nnothing happens.\n> 1, a toiletpaperhanger 1, and a towelholder 1\nnothing happens.\n> 1, a toiletpaperhanger 1, and a towelholder 1\nnothing happens.\n> 1, a toiletpaperhanger 1, and a towel, LLM Action: go to countertop 1
+INFO:dagger_server_running:Task: [0], Iter: [14], Obs: Nothing happens., VLM Action: 1, a toiletpaperhanger 1, and a towel, LLM Action: go to countertop 1
+INFO:dagger_server_running:Task: [0], Iter: [15], Obs: Nothing happens., VLM Action: 1, a toiletpaperhanger 1, and a towel, LLM Action: go to countertop 1
+INFO:dagger_server_running:Task: [0], Iter: [16], Obs: Nothing happens., VLM Action: 1, a toiletpaperhanger 1, and a towel
+nothing happens.
+> 1, a toiletpaperhanger 1, and a towel
+nothing happens.
+> 1, a toiletpaperhanger 1, and a towel
+nothing happens.
+> 1, a toiletpaperhanger 1, and a towel
+nothing happens.
+> 1, a toiletpaperhanger 1, and a towel
+nothing happens.
+> 1, a toiletpaperhanger, LLM Action: go to countertop 1
+INFO:dagger_server_running:Task: [0], Iter: [17], Obs: Nothing happens., VLM Action: 1, a toiletpaperhanger 1, and a towel, LLM Action: go to countertop 1
+INFO:dagger_server_running:Task: [0], Iter: [18], Obs: Nothing happens., VLM Action: 1, a toiletpaperhanger 1, and a towel, LLM Action: go to countertop 1
+INFO:dagger_server_running:Task: [0], Iter: [19], Obs: Nothing happens., VLM Action: 1, a toiletpaperhanger 1, and a towel, LLM Action: go to countertop 1
+INFO:dagger_server_running:Task: [0], Iter: [20], Obs: Nothing happens., VLM Action: 1, a toiletpaperhanger 1, and a towel
+nothing happens.
+> 1, a toiletpaperhanger 1, and a towel
+nothing happens.
+> 1, a toiletpaperhanger 1, and a towel
+nothing happens.
+> 1, a toiletpaperhanger 1, and a towel
+nothing happens.
+> 1, a toiletpaperhanger 1, and a towel
+nothing happens.
+> 1, a toiletpaperhanger, LLM Action: go to countertop 1
+INFO:dagger_server_running:Task: [0], Iter: [21], Obs: Nothing happens., VLM Action: 1, a toiletpaperhanger 1, and a towel
+nothing happens.
+> 1, a toiletpaperhanger 1, and a towel
+nothing happens.
+> 1, a toiletpaperhanger 1, and a towel
+nothing happens.
+> 1, a toiletpaperhanger 1, and a towel
+nothing happens.
+> 1, a toiletpaperhanger 1, and a towel
+nothing happens.
+> 1, a toiletpaperhanger, LLM Action: go to countertop 1
+INFO:dagger_server_running:Task: [0], Iter: [22], Obs: Nothing happens., VLM Action: 1, a toiletpaperhanger 1, and a towel\nnothing happens.\n> 1, a toiletpaperhanger 1, and a towel\nnothing happens.\n> 1, a toiletpaperhanger 1, and a towel\nnothing happens.\n> 1, a toiletpaperhanger 1, and a towel\nnothing happens.\n> 1, a toiletpaperhanger 1, and a towel\nnothing happens.\n> 1, a to, LLM Action: go to countertop 1
+INFO:dagger_server_running:Task: [0], Iter: [23], Obs: Nothing happens., VLM Action: 1, a toiletpaperhanger 1, and a towel, LLM Action: go to countertop 1
+INFO:dagger_server_running:Task: [0], Iter: [24], Obs: Nothing happens., VLM Action: 1, a toiletpaperhanger 1, and a towel, LLM Action: go to countertop 1
+INFO:dagger_server_running:Task: [0], Iter: [25], Obs: Nothing happens., VLM Action: 1, a toiletpaperhanger 1, and a towel, LLM Action: go to countertop 1
+INFO:dagger_server_running:Task: [0], Iter: [26], Obs: Nothing happens., VLM Action: 1, a toiletpaperhanger 1, and a towel, LLM Action: go to countertop 1
+INFO:dagger_server_running:Task: [0], Iter: [27], Obs: Nothing happens., VLM Action: 1, a toiletpaperhanger 1, and a towel, LLM Action: go to countertop 1
+INFO:dagger_server_running:Task: [0], Iter: [28], Obs: Nothing happens., VLM Action: 1, a toiletpaperhanger 1, and a towel
+nothing happens.
+> 1, a toiletpaperhanger 1, and a towel
+nothing happens.
+> 1, a toiletpaperhanger 1, and a towel
+nothing happens.
+> 1, a toiletpaperhanger 1, and a towel
+nothing happens.
+> 1, a toiletpaperhanger 1, and a towel
+nothing happens.
+> 1, a toiletpaperhanger, LLM Action: go to countertop 1
+INFO:dagger_server_running:Task: [0], Iter: [29], Obs: Nothing happens., VLM Action: 1, a toiletpaperhanger 1, and a towel
+nothing happens.
+> 1, a toiletpaperhanger 1, and a towel
+nothing happens.
+> 1, a toiletpaperhanger 1, and a towel
+nothing happens.
+> 1, a toiletpaperhanger 1, and a towel
+nothing happens.
+> 1, a toiletpaperhanger 1, and a towel
+nothing happens.
+> 1, a toiletpaperhanger, LLM Action: go to countertop 1
+INFO:dagger_server_running:Task: [0], Iter: [30], Obs: Nothing happens., VLM Action: 1, a toiletpaperhanger 1, and a towel
+nothing happens.
+> 1, a toiletpaperhanger 1, and a towel
+nothing happens.
+> 1, a toiletpaperhanger 1, and a towel
+nothing happens.
+> 1, a toiletpaperhanger 1, and a towel
+nothing happens.
+> 1, a toiletpaperhanger 1, and a towel
+nothing happens.
+> 1, a toiletpaperhanger, LLM Action: go to countertop 1
+INFO:dagger_server_running:Task: [0], Iter: [31], Obs: Nothing happens., VLM Action: 1, a toiletpaperhanger 1, and a towel
+nothing happens.
+> 1, a toiletpaperhanger 1, and a towel
+nothing happens.
+> 1, a toiletpaperhanger 1, and a towel
+nothing happens.
+> 1, a toiletpaperhanger 1, and a towel
+nothing happens.
+> 1, a toiletpaperhanger 1, and a towel
+nothing happens.
+> 1, a toiletpaperhanger, LLM Action: go to countertop 1
+INFO:dagger_server_running:Task: [0], Iter: [32], Obs: Nothing happens., VLM Action: 1, a toiletpaperhanger 1, and a towel, LLM Action: go to countertop 1
+INFO:dagger_server_running:Task: [0], Iter: [33], Obs: Nothing happens., VLM Action: 1, a toiletpaperhanger 1, and a towel, LLM Action: go to countertop 1
+INFO:dagger_server_running:Task: [0], Iter: [34], Obs: Nothing happens., VLM Action: 1, a toiletpaperhanger 1, and a towel, LLM Action: go to countertop 1
+INFO:dagger_server_running:Task: [0], Iter: [35], Obs: Nothing happens., VLM Action: 1, a toiletpaperhanger 1, and a towel, LLM Action: go to countertop 1
+INFO:dagger_server_running:Task: [0], Iter: [36], Obs: Nothing happens., VLM Action: nothing happens, LLM Action: go to countertop 1
+INFO:dagger_server_running:Task: [0], Iter: [37], Obs: Nothing happens., VLM Action: nothing happens, LLM Action: go to countertop 1
+INFO:dagger_server_running:Task: [0], Iter: [38], Obs: Nothing happens., VLM Action: nothing happens, LLM Action: go to countertop 1
+INFO:dagger_server_running:Task: [0], Iter: [39], Obs: Nothing happens., VLM Action: nothing happens, LLM Action: go to countertop 1
+INFO:dagger_server_running:Task: [0], Iter: [40], Obs: Nothing happens., VLM Action: nothing happens, LLM Action: go to countertop 1
+INFO:dagger_server_running:Task: [0], Iter: [41], Obs: Nothing happens., VLM Action: nothing happens, LLM Action: go to countertop 1
+INFO:dagger_server_running:Task: [0], Iter: [42], Obs: Nothing happens., VLM Action: nothing happens, LLM Action: go to countertop 1
+INFO:dagger_server_running:Task: [0], Iter: [43], Obs: Nothing happens., VLM Action: nothing happens, LLM Action: go to countertop 1
+INFO:dagger_server_running:Task: [0], Iter: [44], Obs: Nothing happens., VLM Action: nothing happens, LLM Action: go to countertop 1
+INFO:dagger_server_running:Task: [0], Iter: [45], Obs: Nothing happens., VLM Action: nothing, LLM Action: go to countertop 1
+INFO:dagger_server_running:Task: [0], Iter: [46], Obs: Nothing happens., VLM Action: nothing, LLM Action: go to countertop 1
+INFO:dagger_server_running:Task: [0], Iter: [47], Obs: Nothing happens., VLM Action: nothing, LLM Action: go to countertop 1
+INFO:dagger_server_running:Task: [0], Iter: [48], Obs: Nothing happens., VLM Action: nothing, LLM Action: go to countertop 1
+INFO:dagger_server_running:Task: [0], Iter: [49], Obs: Nothing happens., VLM Action: nothing, LLM Action: go to countertop 1
+INFO:dagger_server_running:Task: [0], Iter: [50], Obs: Nothing happens., VLM Action: nothing, LLM Action: go to countertop 1
+INFO:dagger_server_running:*************Start Training*************
+INFO:dagger_server_running:Epoch: [1], Iter: [0], Lr: [0.000005], Loss: [2.2620], W_reward: [0.0192], L_reward: [-0.0004], NLL: [3.1572]
+INFO:dagger_server_running:Epoch: [1], Iter: [1], Lr: [0.000005], Loss: [3.5183], W_reward: [-0.0037], L_reward: [0.0011], NLL: [5.6455]
+INFO:dagger_server_running:Epoch: [1], Iter: [2], Lr: [0.000005], Loss: [3.2915], W_reward: [0.0041], L_reward: [0.0064], NLL: [5.1945]
+INFO:dagger_server_running:Epoch: [1], Iter: [3], Lr: [0.000005], Loss: [2.5832], W_reward: [0.0130], L_reward: [0.0013], NLL: [3.7918]
+INFO:dagger_server_running:Epoch: [1], Iter: [4], Lr: [0.000005], Loss: [2.3011], W_reward: [0.0247], L_reward: [0.0003], NLL: [3.2402]
+INFO:dagger_server_running:Epoch: [1], Iter: [5], Lr: [0.000005], Loss: [3.2931], W_reward: [0.0013], L_reward: [-0.0002], NLL: [5.2014]
+INFO:dagger_server_running:Epoch: [1], Iter: [6], Lr: [0.000005], Loss: [2.3913], W_reward: [0.0209], L_reward: [0.0019], NLL: [3.4151]
+INFO:dagger_server_running:Epoch: [1], Iter: [7], Lr: [0.000005], Loss: [2.2197], W_reward: [0.0305], L_reward: [0.0051], NLL: [3.0784]
+INFO:dagger_server_running:Epoch: [1], Iter: [8], Lr: [0.000005], Loss: [2.2310], W_reward: [0.0268], L_reward: [0.0019], NLL: [3.1005]
+INFO:dagger_server_running:Epoch: [1], Iter: [9], Lr: [0.000005], Loss: [2.2454], W_reward: [0.0376], L_reward: [0.0039], NLL: [3.1379]
+INFO:dagger_server_running:Epoch: [1], Iter: [10], Lr: [0.000005], Loss: [2.0604], W_reward: [0.0197], L_reward: [0.0001], NLL: [2.7539]
+INFO:dagger_server_running:Epoch: [1], Iter: [11], Lr: [0.000005], Loss: [3.0666], W_reward: [0.0404], L_reward: [-0.0011], NLL: [4.7880]
+INFO:dagger_server_running:Epoch: [1], Iter: [12], Lr: [0.000005], Loss: [2.0812], W_reward: [0.0270], L_reward: [0.0015], NLL: [2.8014]
+INFO:dagger_server_running:Epoch: [1], Iter: [13], Lr: [0.000005], Loss: [3.0894], W_reward: [0.0365], L_reward: [0.0011], NLL: [4.8276]
+INFO:dagger_server_running:Epoch: [1], Iter: [14], Lr: [0.000005], Loss: [2.0175], W_reward: [0.0379], L_reward: [0.0008], NLL: [2.6854]
+INFO:dagger_server_running:Epoch: [1], Iter: [15], Lr: [0.000005], Loss: [2.0527], W_reward: [0.0324], L_reward: [0.0029], NLL: [2.7484]
+INFO:dagger_server_running:Epoch: [1], Iter: [16], Lr: [0.000005], Loss: [1.9996], W_reward: [0.0399], L_reward: [0.0005], NLL: [2.6520]
+INFO:dagger_server_running:Epoch: [1], Iter: [17], Lr: [0.000005], Loss: [1.9827], W_reward: [0.0441], L_reward: [0.0009], NLL: [2.6219]
+INFO:dagger_server_running:Epoch: [1], Iter: [18], Lr: [0.000005], Loss: [3.0466], W_reward: [0.0222], L_reward: [0.0098], NLL: [4.7193]
+INFO:dagger_server_running:Epoch: [1], Iter: [19], Lr: [0.000005], Loss: [3.4203], W_reward: [0.0359], L_reward: [0.0210], NLL: [5.4690]
+INFO:dagger_server_running:Task: [1], Iter: [0], Obs: -= Welcome to TextWorld, ALFRED! =-
+
+You are in the middle of a room. Looking quickly around you, you see a bathtub 1, a bathtubbasin 1, a countertop 1, a shelf 1, a shelf 2, a sink 1, a sinkbasin 1, a handtowelholder 1, a handtowelholder 2, a toilet 1, a toiletpaperhanger 1, and a towelholder 1.
+
+Your task is to: Put the clean cloth on the toilet tank, VLM Action: you are in the middle of a room. looking quickly around you, you see a bathtub 1, a bathtubbasin 1, a countertop 1, a shelf 1, a shelf 2, a sink 1, a sinkbasin 1, a handtowelholder 1, a handtowelholder 2, a toilet 1, a toiletpaperhanger 1, and a towelholder 1, LLM Action: go to countertop 1
+INFO:dagger_server_running:Task: [1], Iter: [1], Obs: You are in the middle of a room. Looking quickly around you, you see nothing., VLM Action: you are in the middle of a room. looking quickly around you, you see nothing, LLM Action: go to countertop 1
+INFO:dagger_server_running:Task: [1], Iter: [2], Obs: You are in the middle of a room. Looking quickly around you, you see nothing., VLM Action: you are in the middle of a room. looking quickly around you, you see nothing, LLM Action: go to countertop 1
+INFO:dagger_server_running:Task: [1], Iter: [3], Obs: You are in the middle of a room. Looking quickly around you, you see nothing., VLM Action: you are in the middle of a room. looking quickly around you, you see nothing, LLM Action: go to countertop 1
+INFO:dagger_server_running:Task: [1], Iter: [4], Obs: You are in the middle of a room. Looking quickly around you, you see nothing., VLM Action: you are in the middle of a room. looking quickly around you, you see nothing, LLM Action: go to countertop 1
+INFO:dagger_server_running:Task: [1], Iter: [5], Obs: You are in the middle of a room. Looking quickly around you, you see nothing., VLM Action: you are in the middle of a room. looking quickly around you, you see nothing, LLM Action: go to countertop 1
+INFO:dagger_server_running:Task: [1], Iter: [6], Obs: You are in the middle of a room. Looking quickly around you, you see nothing., VLM Action: you are in the middle of a room. looking quickly around you, you see nothing, LLM Action: go to countertop 1
+INFO:dagger_server_running:Task: [1], Iter: [7], Obs: You are in the middle of a room. Looking quickly around you, you see nothing., VLM Action: you are in the middle of a room. looking quickly around you, you see nothing, LLM Action: go to countertop 1
+INFO:dagger_server_running:Task: [1], Iter: [8], Obs: You are in the middle of a room. Looking quickly around you, you see nothing., VLM Action: you are in the middle of a room. looking quickly around you, you see nothing
+you are in the middle of a room. looking quickly around you, you see nothing.
+> you are in the middle of a room. looking quickly around you, you see nothing
+you are in the middle of a room. looking quickly around you, you see nothing.
+> you are in the middle of a room. looking quickly around you, you see nothing
+you are in the middle of a room. looking quickly around you, you see nothing.
+> you are in the middle of a room. looking quickly, LLM Action: go to countertop 1
+INFO:dagger_server_running:Task: [1], Iter: [9], Obs: You are in the middle of a room. Looking quickly around you, you see nothing., VLM Action: you are in the middle of a room. looking quickly around you, you see nothing.
+you are in the middle of a room. looking quickly around you, you see nothing.
+> you are in the middle of a room. looking quickly around you, you see nothing.
+you are in the middle of a room. looking quickly around you, you see nothing.
+> you are in the middle of a room. looking quickly around you, you see nothing.
+you are in the middle of a room. looking quickly around you, you see nothing.
+> you are in the middle of a room, LLM Action: go to countertop 1
+INFO:dagger_server_running:Task: [1], Iter: [10], Obs: You are in the middle of a room. Looking quickly around you, you see nothing., VLM Action: you are in the middle of a room. looking quickly around you, you see nothing.
+you are in the middle of a room. looking quickly around you, you see nothing.
+> you are in the middle of a room. looking quickly around you, you see nothing.
+you are in the middle of a room. looking quickly around you, you see nothing.
+> you are in the middle of a room. looking quickly around you, you see nothing.
+you are in the middle of a room. looking quickly around you, you see nothing.
+> you are in the middle of a room, LLM Action: go to countertop 1
+INFO:dagger_server_running:Task: [1], Iter: [11], Obs: You are in the middle of a room. Looking quickly around you, you see nothing., VLM Action: you are in the middle of a room. looking quickly around you, you see nothing.\nyou are in the middle of a room. looking quickly around you, you see nothing.\n> you are in the middle of a room. looking quickly around you, you see nothing.\nyou are in the middle of a room. looking quickly around you, you see nothing.\n> you are in the middle of a room
+you are in the middle of a room. looking quickly around you, you see nothing.
+> you are in the middle of a room. looking quickly around you, you see nothing, LLM Action: go to countertop 1
+INFO:dagger_server_running:Task: [1], Iter: [12], Obs: You are in the middle of a room. Looking quickly around you, you see nothing., VLM Action: you are in the middle of a room. looking quickly around you, you see nothing.
+you are in the middle of a room. looking quickly around you, you see nothing.
+> you are in the middle of a room. looking quickly around you, you see nothing.
+you are in the middle of a room. looking quickly around you, you see nothing.
+> you are in the middle of a room. looking quickly around you, you see nothing.
+you are in the middle of a room. looking quickly around you, you see nothing.
+> you are in the middle of a room, LLM Action: go to countertop 1
+INFO:dagger_server_running:Task: [1], Iter: [13], Obs: You are in the middle of a room. Looking quickly around you, you see nothing., VLM Action: you are in the middle of a room. looking quickly around you, you see nothing.\nyou are in the middle of a room. looking quickly around you, you see nothing.\n> you are in the middle of a room. looking quickly around you, you see nothing.\nyou are in the middle of a room. looking quickly around you, you see nothing.\n> you are in the middle of a room
+you are in the middle of a room. looking quickly around you, you see nothing.
+> you are in the middle of a room. looking quickly around you, you see nothing, LLM Action: go to countertop 1
+INFO:dagger_server_running:Task: [1], Iter: [14], Obs: You are in the middle of a room. Looking quickly around you, you see nothing., VLM Action: you are in the middle of a room. looking quickly around you, you see nothing.\\nyou are in the middle of a room. looking quickly around you, you see nothing.\\n> you are in the middle of a room. looking quickly around you, you see nothing.\\nyou are in the middle of a room. looking quickly around you, you see nothing.\\n> you are in the middle of a room
+you are in the middle of a room. looking quickly around you, you see nothing.
+> you are in the middle of a room. looking quickly around you, LLM Action: go to countertop 1
+INFO:dagger_server_running:Task: [1], Iter: [15], Obs: You are in the middle of a room. Looking quickly around you, you see nothing., VLM Action: you are in the middle of a room. looking quickly around you, you see nothing, LLM Action: go to countertop 1
+INFO:dagger_server_running:Task: [1], Iter: [16], Obs: You are in the middle of a room. Looking quickly around you, you see nothing., VLM Action: you are in the middle of a room. looking quickly around you, you see nothing
+you are in the middle of a room. looking quickly around you, you see nothing.
+> you are in the middle of a room. looking quickly around you, you see nothing
+you are in the middle of a room. looking quickly around you, you see nothing.
+> you are in the middle of a room. looking quickly around you, you see nothing
+you are in the middle of a room. looking quickly around you, you see nothing.
+> you are in the middle of a room. looking quickly, LLM Action: go to countertop 1
+INFO:dagger_server_running:Task: [1], Iter: [17], Obs: You are in the middle of a room. Looking quickly around you, you see nothing., VLM Action: you are in the middle of a room. looking quickly around you, you see nothing.\nyou are in the middle of a room. looking quickly around you, you see nothing.\n> you are in the middle of a room. looking quickly around you, you see nothing.\nyou are in the middle of a room. looking quickly around you, you see nothing.\n> you are in the middle of a room. looking quickly
+you are in the middle of a room. looking quickly around you, you see nothing.
+> you are in the middle of a room. looking quickly around you, you, LLM Action: go to countertop 1
+INFO:dagger_server_running:Task: [1], Iter: [18], Obs: You are in the middle of a room. Looking quickly around you, you see nothing., VLM Action: you are in the middle of a room. looking quickly, LLM Action: go to countertop 1
+INFO:dagger_server_running:Task: [1], Iter: [19], Obs: You are in the middle of a room. Looking quickly around you, you see nothing., VLM Action: you are in the middle of a room. looking quickly, LLM Action: go to countertop 1
+INFO:dagger_server_running:Task: [1], Iter: [20], Obs: You are in the middle of a room. Looking quickly around you, you see nothing., VLM Action: you are in the middle of a room. looking quickly, LLM Action: go to countertop 1
+INFO:dagger_server_running:Task: [1], Iter: [21], Obs: You are in the middle of a room. Looking quickly around you, you see nothing., VLM Action: you are in the middle of a room. looking quickly, LLM Action: go to countertop 1
+INFO:dagger_server_running:Task: [1], Iter: [22], Obs: You are in the middle of a room. Looking quickly around you, you see nothing., VLM Action: you are in the middle of a room. looking quickly, LLM Action: go to countertop 1
+INFO:dagger_server_running:Task: [1], Iter: [23], Obs: You are in the middle of a room. Looking quickly around you, you see nothing., VLM Action: you are in the middle of a room. looking quickly, LLM Action: go to countertop 1
+INFO:dagger_server_running:Task: [1], Iter: [24], Obs: You are in the middle of a room. Looking quickly around you, you see nothing., VLM Action: you are in the middle of a room. looking quickly, LLM Action: go to countertop 1
+INFO:dagger_server_running:Task: [1], Iter: [25], Obs: You are in the middle of a room. Looking quickly around you, you see nothing., VLM Action: you are in the middle of a room. looking quickly, LLM Action: go to countertop 1
+INFO:dagger_server_running:Task: [1], Iter: [26], Obs: You are in the middle of a room. Looking quickly around you, you see nothing., VLM Action: you are in the middle of a room. looking quickly
+> you are in the middle of a room. looking quickly
+> you are in the middle of a room. looking quickly
+> you are in the middle of a room. looking quickly
+> you are in the middle of a room. looking quickly
+> you are in the middle of a room. looking quickly
+> you are in the middle of a room. looking quickly
+> you are in the middle of a room. looking quickly, LLM Action: go to countertop 1
+INFO:dagger_server_running:Task: [1], Iter: [27], Obs: You are in the middle of a room. Looking quickly around you, you see nothing., VLM Action: you are in the middle of a room, LLM Action: go to countertop 1
+INFO:dagger_server_running:Task: [1], Iter: [28], Obs: Nothing happens., VLM Action: you are in the middle of a room, LLM Action: go to countertop 1
+INFO:dagger_server_running:Task: [1], Iter: [29], Obs: Nothing happens., VLM Action: you are in the middle of a room, LLM Action: go to countertop 1
+INFO:dagger_server_running:Task: [1], Iter: [30], Obs: Nothing happens., VLM Action: you are in the middle of a room, LLM Action: go to countertop 1
+INFO:dagger_server_running:Task: [1], Iter: [31], Obs: Nothing happens., VLM Action: nothing, LLM Action: go to countertop 1
+INFO:dagger_server_running:Task: [1], Iter: [32], Obs: Nothing happens., VLM Action: nothing, LLM Action: go to countertop 1
+INFO:dagger_server_running:Task: [1], Iter: [33], Obs: Nothing happens., VLM Action: you are a room, LLM Action: go to countertop 1
+INFO:dagger_server_running:Task: [1], Iter: [34], Obs: Nothing happens., VLM Action: you, a bath, a bath, a bath, a bath, a bath, a bath, a bath, a bath, a bath, a bath, a bath, a bath, a bath, a bath, a bath, a bath, a bath, a bath, a bath, a bath, a bath, LLM Action: go to countertop 1
+INFO:dagger_server_running:Task: [1], Iter: [35], Obs: Nothing happens., VLM Action: a bath, a bath, a bath, LLM Action: go to countertop 1
+INFO:dagger_server_running:Task: [1], Iter: [36], Obs: Nothing happens., VLM Action: a bath, a bath, LLM Action: go to countertop 1
+INFO:dagger_server_running:Task: [1], Iter: [37], Obs: Nothing happens., VLM Action: a bath, a bath, a bath, a bath, a bath, a bath, a bath, a bath, a bath, a bath, a bath, a bath, a bath, a bath, a bath, a bath, a bath, a bath, a bath, a bath, a bath, a bath, a bath, a bath, a bath, a bath, a bath, a bath, a bath, a bath, a bath, a bath, a bath, a bath, a bath, a bath, a bath, a bath, a bath, a, a, a bath, a, a, LLM Action: go to countertop 1
+INFO:dagger_server_running:Task: [1], Iter: [38], Obs: Nothing happens., VLM Action: a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, and a, you, and it, and it, and, and it, and it, and it, and it, and it, and, and, and, and, and, and, a, a, LLM Action: go to countertop 1
+INFO:dagger_server_running:Task: [1], Iter: [39], Obs: Nothing happens., VLM Action: a, a, a, a, a, a, a, a, and, and, a, a, a, a, and, and, LLM Action: go to countertop 1
+INFO:dagger_server_running:Task: [1], Iter: [40], Obs: Nothing happens., VLM Action: a, LLM Action: go to countertop 1
+INFO:dagger_server_running:Task: [1], Iter: [41], Obs: Nothing happens., VLM Action: a, a, LLM Action: go to countertop 1
+INFO:dagger_server_running:Task: [1], Iter: [42], Obs: Nothing happens., VLM Action: will, and, LLM Action: go to countertop 1
+INFO:dagger_server_running:Task: [1], Iter: [43], Obs: Nothing happens., VLM Action: and, LLM Action: go to countertop 1
+INFO:dagger_server_running:Task: [1], Iter: [44], Obs: Nothing happens., VLM Action: and, a, LLM Action: go to countertop 1
+INFO:dagger_server_running:Task: [1], Iter: [45], Obs: Nothing happens., VLM Action: it, LLM Action: go to countertop 1
+INFO:dagger_server_running:Task: [1], Iter: [46], Obs: Nothing happens., VLM Action: it, LLM Action: go to countertop 1
+INFO:dagger_server_running:Task: [1], Iter: [47], Obs: Nothing happens., VLM Action: and, LLM Action: go to countertop 1
+INFO:dagger_server_running:Task: [1], Iter: [48], Obs: Nothing happens., VLM Action: and, LLM Action: go to countertop 1
+INFO:dagger_server_running:Task: [1], Iter: [49], Obs: Nothing happens., VLM Action: and, LLM Action: go to countertop 1
+INFO:dagger_server_running:Task: [1], Iter: [50], Obs: Nothing happens., VLM Action: and, and, LLM Action: go to countertop 1
+INFO:dagger_server_running:*************Start Training*************
+INFO:dagger_server_running:Epoch: [1], Iter: [20], Lr: [0.000005], Loss: [3.2448], W_reward: [0.0354], L_reward: [0.0008], NLL: [5.1376]
+INFO:dagger_server_running:Epoch: [1], Iter: [21], Lr: [0.000005], Loss: [2.0647], W_reward: [0.0558], L_reward: [0.0343], NLL: [2.7644]
+INFO:dagger_server_running:Epoch: [1], Iter: [22], Lr: [0.000005], Loss: [2.1204], W_reward: [0.0506], L_reward: [0.0029], NLL: [2.9017]
+INFO:dagger_server_running:Epoch: [1], Iter: [23], Lr: [0.000005], Loss: [3.1929], W_reward: [0.0267], L_reward: [0.0433], NLL: [4.9829]
+INFO:dagger_server_running:Epoch: [1], Iter: [24], Lr: [0.000005], Loss: [3.3017], W_reward: [0.0208], L_reward: [0.0241], NLL: [5.2138]
+INFO:dagger_server_running:Epoch: [1], Iter: [25], Lr: [0.000005], Loss: [3.2119], W_reward: [0.0510], L_reward: [0.0094], NLL: [5.0786]
+INFO:dagger_server_running:Epoch: [1], Iter: [26], Lr: [0.000005], Loss: [2.1041], W_reward: [0.0560], L_reward: [0.0012], NLL: [2.8760]
+INFO:dagger_server_running:Epoch: [1], Iter: [27], Lr: [0.000005], Loss: [2.0862], W_reward: [0.0642], L_reward: [-0.0049], NLL: [2.8541]
+INFO:dagger_server_running:Epoch: [1], Iter: [28], Lr: [0.000005], Loss: [2.1776], W_reward: [0.0607], L_reward: [0.0375], NLL: [2.9920]
+INFO:dagger_server_running:Epoch: [1], Iter: [29], Lr: [0.000005], Loss: [2.0701], W_reward: [0.0540], L_reward: [0.0007], NLL: [2.8065]
+INFO:dagger_server_running:Epoch: [1], Iter: [30], Lr: [0.000005], Loss: [3.0457], W_reward: [0.0397], L_reward: [0.0141], NLL: [4.7306]
+INFO:dagger_server_running:Epoch: [1], Iter: [31], Lr: [0.000005], Loss: [1.9417], W_reward: [0.0424], L_reward: [0.0014], NLL: [2.5377]
+INFO:dagger_server_running:Epoch: [1], Iter: [32], Lr: [0.000005], Loss: [2.0048], W_reward: [0.0567], L_reward: [-0.0010], NLL: [2.6802]
+INFO:dagger_server_running:Epoch: [1], Iter: [33], Lr: [0.000005], Loss: [3.0675], W_reward: [0.0653], L_reward: [0.0338], NLL: [4.7799]
+INFO:dagger_server_running:Epoch: [1], Iter: [34], Lr: [0.000005], Loss: [3.0657], W_reward: [0.0717], L_reward: [0.0154], NLL: [4.8007]
+INFO:dagger_server_running:Epoch: [1], Iter: [35], Lr: [0.000005], Loss: [3.2432], W_reward: [0.0321], L_reward: [0.0286], NLL: [5.1036]
+INFO:dagger_server_running:Epoch: [1], Iter: [36], Lr: [0.000005], Loss: [2.1214], W_reward: [0.0669], L_reward: [0.0616], NLL: [2.8618]
+INFO:dagger_server_running:Epoch: [1], Iter: [37], Lr: [0.000005], Loss: [1.9116], W_reward: [0.0751], L_reward: [-0.0006], NLL: [2.5112]
+INFO:dagger_server_running:Epoch: [1], Iter: [38], Lr: [0.000005], Loss: [1.8859], W_reward: [0.0626], L_reward: [0.0061], NLL: [2.4413]
+INFO:dagger_server_running:Epoch: [1], Iter: [39], Lr: [0.000005], Loss: [2.8640], W_reward: [0.0792], L_reward: [0.0181], NLL: [4.4019]
+INFO:dagger_server_running:Task: [2], Iter: [0], Obs: -= Welcome to TextWorld, ALFRED! =-
+
+You are in the middle of a room. Looking quickly around you, you see a bathtub 1, a bathtubbasin 1, a countertop 1, a shelf 1, a shelf 2, a sink 1, a sinkbasin 1, a handtowelholder 1, a handtowelholder 2, a toilet 1, a toiletpaperhanger 1, and a towelholder 1.
+
+Your task is to: Place a clean rag on top of the toilet., VLM Action: you are in the middle of a room. looking quickly around you, you see a bathtub 1, a bathtubbasin 1, a countertop 1, a shelf 1, a shelf 2, a sink 1, a sinkbasin 1, a handtowelholder 1, a handtowelholder 2, a toilet 1, a toiletpaperhanger 1, and a towelholder 1, LLM Action: go to countertop 1
+INFO:dagger_server_running:Task: [2], Iter: [1], Obs: You are in the middle of a room. Looking quickly around you, you see nothing., VLM Action: you are in the middle of a room. looking quickly around you, you see nothing, LLM Action: go to countertop 1
+INFO:dagger_server_running:Task: [2], Iter: [2], Obs: You are in the middle of a room. Looking quickly around you, you see nothing., VLM Action: you are in the middle of a room. looking quickly around you, you see nothing, LLM Action: go to countertop 1
+INFO:dagger_server_running:Task: [2], Iter: [3], Obs: You are in the middle of a room. Looking quickly around you, you see nothing., VLM Action: you are in the middle of a room. looking quickly around you, you see nothing.
+you are in the middle of a room. looking quickly around you, you see nothing.
+> you are in the middle of a room. looking quickly around you, you see nothing.
+you are in the middle of a room. looking quickly around you, you see nothing.
+> you are in the middle of a room. looking quickly around you, you see nothing.
+you are in the middle of a room. looking quickly around you, you see nothing.
+> you are in the middle of a room, LLM Action: go to countertop 1
+INFO:dagger_server_running:Task: [2], Iter: [4], Obs: You are in the middle of a room. Looking quickly around you, you see nothing., VLM Action: you are in the middle of a room. looking quickly around you, you see nothing, LLM Action: go to countertop 1
+INFO:dagger_server_running:Task: [2], Iter: [5], Obs: You are in the middle of a room. Looking quickly around you, you see nothing., VLM Action: you are in the middle of a room. looking quickly around you, you see nothing.
+you are in the middle of a room. looking quickly around you, you see nothing.
+> you are in the middle of a room. looking quickly around you, you see nothing.
+you are in the middle of a room. looking quickly around you, you see nothing.
+> you are in the middle of a room. looking quickly around you, you see nothing.
+you are in the middle of a room. looking quickly around you, you see nothing.
+> you are in the middle of a room, LLM Action: go to countertop 1
+INFO:dagger_server_running:Task: [2], Iter: [6], Obs: You are in the middle of a room. Looking quickly around you, you see nothing., VLM Action: you are in the middle of a room. looking quickly around you, you see nothing
+you are in the middle of a room. looking quickly around you, you see nothing.
+> you are in the middle of a room. looking quickly around you, you see nothing
+you are in the middle of a room. looking quickly around you, you see nothing.
+> you are in the middle of a room. looking quickly around you, you see nothing
+you are in the middle of a room. looking quickly around you, you see nothing.
+> you are in the middle of a room. looking quickly, LLM Action: go to countertop 1
+INFO:dagger_server_running:Task: [2], Iter: [7], Obs: You are in the middle of a room. Looking quickly around you, you see nothing., VLM Action: you are in the middle of a room. looking quickly around you, you see nothing
+you are in the middle of a room. looking quickly around you, you see nothing.
+> you are in the middle of a room. looking quickly around you, you see nothing
+you are in the middle of a room. looking quickly around you, you see nothing.
+> you are in the middle of a room. looking quickly around you, you see nothing
+you are in the middle of a room. looking quickly around you, you see nothing.
+> you are in the middle of a room. looking quickly, LLM Action: go to countertop 1
+INFO:dagger_server_running:Task: [2], Iter: [8], Obs: You are in the middle of a room. Looking quickly around you, you see nothing., VLM Action: you are in the middle of a room. looking quickly around you, you see nothing\nyou are in the middle of a room. looking quickly around you, you see nothing.\n> you are in the middle of a room. looking quickly around you, you see nothing\nyou are in the middle of a room. looking quickly around you, you see nothing.\n> you are in the middle of a room. looking quickly
+you are in the middle of a room. looking quickly around you, you see nothing.
+> you are in the middle of a room. looking quickly around you, you, LLM Action: go to countertop 1
+INFO:dagger_server_running:Task: [2], Iter: [9], Obs: You are in the middle of a room. Looking quickly around you, you see nothing., VLM Action: you are in the middle of a room. looking quickly around you, you see nothing\nyou are in the middle of a room. looking quickly around you, you see nothing, LLM Action: go to countertop 1
+INFO:dagger_server_running:Task: [2], Iter: [10], Obs: You are in the middle of a room. Looking quickly around you, you see nothing., VLM Action: you are in the middle of a room. looking quickly around you, you see nothing, LLM Action: go to countertop 1
+INFO:dagger_server_running:Task: [2], Iter: [11], Obs: You are in the middle of a room. Looking quickly around you, you see nothing., VLM Action: you are in the middle of a room. looking quickly around you, you see nothing, LLM Action: go to countertop 1
+INFO:dagger_server_running:Task: [2], Iter: [12], Obs: You are in the middle of a room. Looking quickly around you, you see nothing., VLM Action: you are in the middle of a room. looking quickly around you, you see nothing
+you are in the middle of a room. looking quickly around you, you see nothing.
+> you are in the middle of a room. looking quickly around you, you see nothing
+you are in the middle of a room. looking quickly around you, you see nothing.
+> you are in the middle of a room. looking quickly around you, you see nothing
+you are in the middle of a room. looking quickly around you, you see nothing.
+> you are in the middle of a room. looking quickly, LLM Action: go to countertop 1
+INFO:dagger_server_running:Task: [2], Iter: [13], Obs: You are in the middle of a room. Looking quickly around you, you see nothing., VLM Action: you are in the middle of a room. looking quickly around you, you see nothing
+you are in the middle of a room. looking quickly around you, you see nothing.
+> you are in the middle of a room. looking quickly around you, you see nothing
+you are in the middle of a room. looking quickly around you, you see nothing.
+> you are in the middle of a room. looking quickly around you, you see nothing
+you are in the middle of a room. looking quickly around you, you see nothing.
+> you are in the middle of a room. looking quickly, LLM Action: go to countertop 1
+INFO:dagger_server_running:Task: [2], Iter: [14], Obs: You are in the middle of a room. Looking quickly around you, you see nothing., VLM Action: you are in the middle of a room. looking quickly around you, you see nothing\nyou are in the middle of a room. looking quickly around you, you see nothing.\n> you are in the middle of a room. looking quickly around you, you see nothing\nyou are in the middle of a room. looking quickly around you, you see nothing.\n> you are in the middle of a room. looking quickly
+you are in the middle of a room. looking quickly around you, you see nothing.
+> you are in the middle of a room. looking quickly around you, you, LLM Action: go to countertop 1
+INFO:dagger_server_running:Task: [2], Iter: [15], Obs: You are in the middle of a room. Looking quickly around you, you see nothing., VLM Action: you are in the middle of a room. looking quickly around you, you see nothing, LLM Action: go to countertop 1
+INFO:dagger_server_running:Task: [2], Iter: [16], Obs: You are in the middle of a room. Looking quickly around you, you see nothing., VLM Action: you are in the middle of a room. looking quickly around you, you see nothing
+you are in the middle of a room. looking quickly around you, you see nothing.
+> you are in the middle of a room. looking quickly around you, you see nothing
+you are in the middle of a room. looking quickly around you, you see nothing.
+> you are in the middle of a room. looking quickly around you, you see nothing
+you are in the middle of a room. looking quickly around you, you see nothing.
+> you are in the middle of a room. looking quickly, LLM Action: go to countertop 1
+INFO:dagger_server_running:Task: [2], Iter: [17], Obs: You are in the middle of a room. Looking quickly around you, you see nothing., VLM Action: you are in the middle of a room. looking quickly around you, you see nothing
+you are in the middle of a room. looking quickly around you, you see nothing.
+> you are in the middle of a room. looking quickly around you, you see nothing
+you are in the middle of a room. looking quickly around you, you see nothing.
+> you are in the middle of a room. looking quickly around you, you see nothing
+you are in the middle of a room. looking quickly around you, you see nothing.
+> you are in the middle of a room. looking quickly, LLM Action: go to countertop 1
+INFO:dagger_server_running:Task: [2], Iter: [18], Obs: You are in the middle of a room. Looking quickly around you, you see nothing., VLM Action: you are in the middle of a room. looking quickly around you, you see nothing, LLM Action: go to countertop 1
+INFO:dagger_server_running:Task: [2], Iter: [19], Obs: You are in the middle of a room. Looking quickly around you, you see nothing., VLM Action: you are in the middle of a room. looking quickly around you, you see nothing, LLM Action: go to countertop 1
+INFO:dagger_server_running:Task: [2], Iter: [20], Obs: You are in the middle of a room. Looking quickly around you, you see nothing., VLM Action: you are in the middle of a room. looking quickly, LLM Action: go to countertop 1
+INFO:dagger_server_running:Task: [2], Iter: [21], Obs: You are in the middle of a room. Looking quickly around you, you see nothing., VLM Action: you are in the middle of a room. looking quickly, LLM Action: go to countertop 1
+INFO:dagger_server_running:Task: [2], Iter: [22], Obs: You are in the middle of a room. Looking quickly around you, you see nothing., VLM Action: you are in the middle of a room, LLM Action: go to countertop 1
+INFO:dagger_server_running:Task: [2], Iter: [23], Obs: Nothing happens., VLM Action: you are in the middle of a room. looking quickly around you, you see nothing, LLM Action: go to countertop 1
+INFO:dagger_server_running:Task: [2], Iter: [24], Obs: You are in the middle of a room. Looking quickly around you, you see nothing., VLM Action: you are in the middle of a room, LLM Action: go to countertop 1
+INFO:dagger_server_running:Task: [2], Iter: [25], Obs: Nothing happens., VLM Action: you are in the middle of a room, LLM Action: go to countertop 1
+INFO:dagger_server_running:Task: [2], Iter: [26], Obs: Nothing happens., VLM Action: you are in the middle of a room, LLM Action: go to countertop 1
+INFO:dagger_server_running:Task: [2], Iter: [27], Obs: Nothing happens., VLM Action: you are in the middle of a room, LLM Action: go to countertop 1
+INFO:dagger_server_running:Task: [2], Iter: [28], Obs: Nothing happens., VLM Action: you are in the middle of a room, LLM Action: go to countertop 1
+INFO:dagger_server_running:Task: [2], Iter: [29], Obs: Nothing happens., VLM Action: you are in the middle of a room, LLM Action: go to countertop 1
+INFO:dagger_server_running:Task: [2], Iter: [30], Obs: Nothing happens., VLM Action: you are in the middle of a room, LLM Action: go to countertop 1
+INFO:dagger_server_running:Task: [2], Iter: [31], Obs: Nothing happens., VLM Action: you are in the middle of a room, LLM Action: go to countertop 1
+INFO:dagger_server_running:Task: [2], Iter: [32], Obs: Nothing happens., VLM Action: nothing, LLM Action: go to countertop 1
+INFO:dagger_server_running:Task: [2], Iter: [33], Obs: Nothing happens., VLM Action: nothing, LLM Action: go to countertop 1
+INFO:dagger_server_running:Task: [2], Iter: [34], Obs: Nothing happens., VLM Action: nothing, LLM Action: go to countertop 1
+INFO:dagger_server_running:Task: [2], Iter: [35], Obs: Nothing happens., VLM Action: nothing, LLM Action: go to countertop 1
+INFO:dagger_server_running:Task: [2], Iter: [36], Obs: Nothing happens., VLM Action: nothing.
+nothing, a bath, a bath, a bath, a bath, a bath, LLM Action: go to countertop 1
+INFO:dagger_server_running:Task: [2], Iter: [37], Obs: Nothing happens., VLM Action: you, a bath, a bath, a bath, a bath, a bath, a bath, a bath, a bath, a bath, a bath, a bath, a bath, a bath, a bath, a bath, LLM Action: go to countertop 1
+INFO:dagger_server_running:Task: [2], Iter: [38], Obs: Nothing happens., VLM Action: a bath, a bath, LLM Action: go to countertop 1
+INFO:dagger_server_running:Task: [2], Iter: [39], Obs: Nothing happens., VLM Action: a bath, a bath, LLM Action: go to countertop 1
+INFO:dagger_server_running:Task: [2], Iter: [40], Obs: Nothing happens., VLM Action: a bath, a bath, a bath, a bath, a bath, LLM Action: go to countertop 1
+INFO:dagger_server_running:Task: [2], Iter: [41], Obs: Nothing happens., VLM Action: a bath, a bath, LLM Action: go to countertop 1
+INFO:dagger_server_running:Task: [2], Iter: [42], Obs: Nothing happens., VLM Action: a bath, a bath, a bath, a bath, a bath, a bath, a bath, a bath, a bath, a bath, a bath, a bath, a bath, a bath, a bath, a bath, a bath, a, a bath, a bath, a bath, a bath, a bath, a bath, a bath, a bath, a, a, a bath, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, LLM Action: go to countertop 1
+INFO:dagger_server_running:Task: [2], Iter: [43], Obs: Nothing happens., VLM Action: a, a, a, a, a, a, a, LLM Action: go to countertop 1
+INFO:dagger_server_running:Task: [2], Iter: [44], Obs: Nothing happens., VLM Action: a, a, LLM Action: go to countertop 1
+INFO:dagger_server_running:Task: [2], Iter: [45], Obs: Nothing happens., VLM Action: a, a, a, LLM Action: go to countertop 1
+INFO:dagger_server_running:Task: [2], Iter: [46], Obs: Nothing happens., VLM Action: a, a, a, a, LLM Action: go to countertop 1
+INFO:dagger_server_running:Task: [2], Iter: [47], Obs: Nothing happens., VLM Action: you, and, LLM Action: go to countertop 1
+INFO:dagger_server_running:Task: [2], Iter: [48], Obs: Nothing happens., VLM Action: it, and it, and it, and it, and it, and it and it, and, and, and, and, and, and, a, a, a, a, a, a, a, a, a, a, to, LLM Action: go to countertop 1
+INFO:dagger_server_running:Task: [2], Iter: [49], Obs: Nothing happens., VLM Action: a, a, LLM Action: go to countertop 1
+INFO:dagger_server_running:Task: [2], Iter: [50], Obs: Nothing happens., VLM Action: to a, a, LLM Action: go to countertop 1
+INFO:dagger_server_running:*************Start Training*************
+INFO:dagger_server_running:Epoch: [1], Iter: [40], Lr: [0.000005], Loss: [1.8993], W_reward: [0.0604], L_reward: [0.0049], NLL: [2.4670]
+INFO:dagger_server_running:Epoch: [1], Iter: [41], Lr: [0.000005], Loss: [2.8952], W_reward: [0.0849], L_reward: [0.0060], NLL: [4.4816]
+INFO:dagger_server_running:Epoch: [1], Iter: [42], Lr: [0.000005], Loss: [2.0214], W_reward: [0.0765], L_reward: [-0.0004], NLL: [2.7319]
+INFO:dagger_server_running:Epoch: [1], Iter: [43], Lr: [0.000005], Loss: [2.9668], W_reward: [0.0847], L_reward: [0.0467], NLL: [4.5849]
+INFO:dagger_server_running:Epoch: [1], Iter: [44], Lr: [0.000005], Loss: [3.2331], W_reward: [0.0486], L_reward: [0.0041], NLL: [5.1239]
+INFO:dagger_server_running:Epoch: [1], Iter: [45], Lr: [0.000005], Loss: [1.9730], W_reward: [0.0896], L_reward: [0.1009], NLL: [2.5484]
+INFO:dagger_server_running:Epoch: [1], Iter: [46], Lr: [0.000005], Loss: [1.8345], W_reward: [0.0803], L_reward: [0.0085], NLL: [2.3532]
+INFO:dagger_server_running:Epoch: [1], Iter: [47], Lr: [0.000005], Loss: [1.9610], W_reward: [0.0739], L_reward: [0.0011], NLL: [2.6071]
+INFO:dagger_server_running:Epoch: [1], Iter: [48], Lr: [0.000005], Loss: [2.8927], W_reward: [0.1009], L_reward: [0.0136], NLL: [4.4846]
+INFO:dagger_server_running:Epoch: [1], Iter: [49], Lr: [0.000005], Loss: [1.9182], W_reward: [0.0894], L_reward: [0.0023], NLL: [2.5353]
+INFO:dagger_server_running:Epoch: [1], Iter: [50], Lr: [0.000005], Loss: [1.9847], W_reward: [0.0788], L_reward: [0.0013], NLL: [2.6592]
+INFO:dagger_server_running:Epoch: [1], Iter: [51], Lr: [0.000005], Loss: [2.5980], W_reward: [0.1314], L_reward: [0.0258], NLL: [3.9125]
+INFO:dagger_server_running:Epoch: [1], Iter: [52], Lr: [0.000005], Loss: [2.6949], W_reward: [0.1294], L_reward: [0.0157], NLL: [4.1140]
+INFO:dagger_server_running:Epoch: [1], Iter: [53], Lr: [0.000005], Loss: [1.8791], W_reward: [0.0945], L_reward: [0.0020], NLL: [2.4624]
+INFO:dagger_server_running:Epoch: [1], Iter: [54], Lr: [0.000005], Loss: [2.9571], W_reward: [0.1008], L_reward: [0.0221], NLL: [4.6051]
+INFO:dagger_server_running:Epoch: [1], Iter: [55], Lr: [0.000005], Loss: [1.9043], W_reward: [0.0915], L_reward: [0.0423], NLL: [2.4708]
+INFO:dagger_server_running:Epoch: [1], Iter: [56], Lr: [0.000005], Loss: [1.8231], W_reward: [0.0983], L_reward: [0.0079], NLL: [2.3481]
+INFO:dagger_server_running:Epoch: [1], Iter: [57], Lr: [0.000005], Loss: [2.6774], W_reward: [0.1092], L_reward: [0.0367], NLL: [4.0396]
+INFO:dagger_server_running:Epoch: [1], Iter: [58], Lr: [0.000005], Loss: [1.8100], W_reward: [0.1008], L_reward: [-0.0014], NLL: [2.3333]
+INFO:dagger_server_running:Epoch: [1], Iter: [59], Lr: [0.000005], Loss: [2.6645], W_reward: [0.1576], L_reward: [0.0011], NLL: [4.0932]
+INFO:dagger_server_running:Training complete. Marker written to /srv/scratch/z5428797/EMAC-Embodied-Multimodal-Agent-for-Collaborative-Planning-with-VLM-LLM/output/dagger_server_human_desc/with_bc_dpo-True-tc-False-20260223205503/DONE
