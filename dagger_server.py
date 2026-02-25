@@ -166,7 +166,7 @@ now = int(time.time())
 time_array = time.localtime(now)
 format_time = time.strftime("%Y%m%d%H%M%S", time_array)
 method = "dagger_server_human_desc"
-enable_dpo = True  # DPO requires a reference model; use BC for the first run
+enable_dpo = False  # DPO requires a reference model; use BC for the first run
 enable_tc = False
 output_dir = f"/srv/scratch/z5428797/EMAC-Embodied-Multimodal-Agent-for-Collaborative-Planning-with-VLM-LLM/output/{method}/with_bc_dpo-{enable_dpo}-tc-{enable_tc}-{format_time}/"
 

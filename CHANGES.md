@@ -27,22 +27,32 @@ EMAC+ is a **VLM + LLM** collaborative system for embodied household tasks in AL
 4. The LLM's action is used as the training label to improve the VLM
 5. Only the **projection layer** (768-dim → 4096-dim MLP) is trained — everything else is frozen
 
-### Two LLMs with Different Roles
+### Two Models with Different Roles
 
 | Component | Model | Role | Trainable? |
 |-----------|-------|------|------------|
-| VLM language backbone | Vicuna-7B-v1.1 (Llama 1 fine-tune) | Decoder inside BLIP-2 — generates action text from image tokens + text | No (frozen) |
-| Expert teacher | GPT-5.2 (originally `text-davinci-003`) | Provides ground-truth action labels for training | N/A (external API) |
-| Only trainable part | Projection layer (MLP) | Maps Q-Former output to Vicuna's embedding space | **Yes** |
+| VLM language backbone | Vicuna-7B-v1.1 (LLaMA 1 fine-tune) | Decoder inside BLIP-2 — generates action text from image tokens + text | No (frozen) |
+| Expert teacher | GPT-5.2 (paper uses LLaMa3, codebase originally used `text-davinci-003`) | Provides ground-truth action labels for training | N/A (external API) |
+| Only trainable part | Projection layer (MLP) | Maps Q-Former output to Vicuna's embedding space | **Yes** (~3.15M params) |
 
-### The DAgger Loop
+### The Full DAgger + Reflexion Loop
 
-Each environment episode:
-1. Client (`alfworld_client.py`) resets AI2-THOR, sends observation + image to server
-2. Server (`dagger_server.py`) runs VLM and LLM, sends VLM's action back to client
-3. Client executes action in AI2-THOR, sends new observation back
-4. Repeat for up to 50 steps
-5. After the episode, server trains VLM using LLM's actions as labels
+```
+Round 0:
+  Env 0 → VLM tries task (50 steps) → fails → BC/DPO train on LLM labels
+  Env 1 → VLM tries task → fails → BC/DPO train
+  Env 2 → VLM tries task → fails → BC/DPO train
+  → Save checkpoint
+  → Reflexion: LLM reads failure logs, generates reflections (generate_reflections.py)
+  → Reflections stored in memory for next round
+
+Round 1:
+  Env 0 → VLM retries (with updated model + LLM has past reflections in prompt)
+  Env 1 → ...
+  Env 2 → ...
+  → Save checkpoint
+  → More reflections added to memory
+```
 
 ---
 
@@ -60,7 +70,7 @@ Training pair:
 ```
 
 The VLM learns by imitating the LLM's actions directly. This produces the
-**reference policy checkpoint (πref)**.
+**reference policy checkpoint (piref)**.
 
 ### Phase 2 — DPO (Direct Preference Optimization)
 
@@ -72,7 +82,7 @@ Training pair:
   Winner:  "go to countertop 1"  (LLM expert — good action)
   Loser:   "you, a hand, a hand" (VLM's own output — bad action)
   Loss:    increase probability of Winner, decrease Loser
-           (relative to frozen reference model πref)
+           (relative to frozen reference model piref)
 ```
 
 DPO refines the model beyond simple imitation by teaching it to distinguish
@@ -89,17 +99,103 @@ DPO can't work from scratch because both winner and loser would be garbage.
 
 ```
 Phase 1 (BC):  enable_dpo=False, load_pretrained=False
-  Round 0: Env 0 → Env 1 → Env 2 → train → checkpoint_0
-  Round 1: Env 0 → Env 1 → Env 2 → train → checkpoint_1 (= πref)
+  Round 0: Env 0 → Env 1 → Env 2 → train → reflexion → checkpoint_0
+  Round 1: Env 0 → Env 1 → Env 2 → train → reflexion → checkpoint_1 (= piref)
 
-Phase 2 (DPO): enable_dpo=True, load_pretrained=True, ref_pretrained=πref
-  Round 0: Env 0 → Env 1 → Env 2 → DPO train → checkpoint_0
-  Round 1: Env 0 → Env 1 → Env 2 → DPO train → checkpoint_1 (final)
+Phase 2 (DPO): enable_dpo=True, load_pretrained=True, ref_pretrained=piref
+  Round 0: Env 0 → Env 1 → Env 2 → DPO train → reflexion → checkpoint_0
+  Round 1: Env 0 → Env 1 → Env 2 → DPO train → reflexion → checkpoint_1 (final)
 ```
 
 ---
 
-## 3. Key Configuration
+## 3. Paper Features — What's Implemented vs What We Changed
+
+### ReAct Prompting
+
+**Paper**: Uses the ReAct framework (Yao et al., 2022) for LLM prompting with `think:` reasoning
+steps interleaved with actions. Paper (Appendix A.2) says: *"We utilize the prompting strategy
+established by ReAct while disregarding the reasoning traces, specifically the 'think' stages,
+throughout the imitation learning process."*
+
+**Implementation**: The few-shot prompts in `alfworld_3prompts.json` include full ReAct traces
+with `think:` steps. The code (`dagger_server.py:305-308`) handles this:
+
+```python
+while llm_action.startswith("think:") and (not enable_tc):
+    env_history.add("action", llm_action)
+    env_history.add("observation", "OK.")
+    llm_action = llm_forward(...)  # Ask again to get the actual action
+```
+
+When `enable_tc=False` (current setting), `think:` steps are skipped — only the final executable
+action is kept as the training label. Set `enable_tc=True` to also train on thought traces.
+
+### Retrospective Feedback / Reflexion
+
+**Paper**: After failed episodes, the LLM generates retrospective feedback (Table 5-6) analyzing
+what went wrong and producing a new plan for next attempt.
+
+**Implementation**: Fully implemented via `generate_reflections.py`:
+
+1. After each round, `update_memory()` is called (`dagger_server.py:441`)
+2. For each failed env, the LLM reads the failure trace and generates a reflection
+3. Reflections are stored in `env_configs[env]['memory']` (limited to last 3)
+4. On the next round, reflections are prepended to the LLM prompt via `EnvironmentHistory`
+5. This gives the LLM "memory" of past failures to generate better expert actions
+
+### Action Sequence Planning
+
+**Paper**: Describes the LLM planning a full action sequence (Table 4: step 1, step 2, ... step 5)
+upfront, then the VLM executes step-by-step with replanning on failure.
+
+**Implementation**: The LLM generates **one action per step** via `llm_forward()` with `stop=['\n']`.
+This is simpler than the paper's description, but functionally equivalent for the DAgger training
+loop — the LLM still provides the correct next action at each step, which is what the VLM trains on.
+The multi-step planning is more relevant for the LLM's own reasoning (via ReAct `think:` steps)
+than for the VLM training labels.
+
+### LLM Expert Model
+
+**Paper** (Page 7, Table 9): *"We choose LLaMa3 as the LLM expert."*
+
+**Codebase history**:
+
+| Version | LLM Expert | Reason |
+|---------|-----------|--------|
+| Original EMMA code (Yang et al., 2023) | `text-davinci-003` | Completion model, codebase was forked from EMMA |
+| EMAC+ paper | LLaMa3 | Open-weight, can be LoRA fine-tuned for replanning |
+| Our adaptation | GPT-5.2 | `text-davinci-003` was shut down by OpenAI |
+
+The paper uses LLaMa3 specifically because it's open-weight and can be LoRA fine-tuned
+(Eq. 3 in the paper). GPT-5.2 cannot be LoRA fine-tuned since it's a proprietary API.
+For the DAgger training pipeline (BC + DPO), any capable LLM expert works — the
+difference is whether you can also fine-tune the LLM itself.
+
+### LoRA Fine-tuning of the LLM
+
+**Paper** (Table 9): Shows LoRA hyperparameters for fine-tuning the LLM expert itself.
+
+**Implementation**: The config has `adaptor_tuning: False` in `blip2_emac.yaml`. The LoRA
+fine-tuning capability exists in the code (`blip2.py:49-77`) but is disabled. This is a separate
+step where the LLM expert improves its own planning ability — not part of the core
+BC → DPO pipeline that we replicated.
+
+### Only Training the Projection Layer
+
+**Paper** (Page 4): *"We only update the linear projection layer as shown in Fig. 1"*
+
+**Implementation**: Confirmed correct. The config freezes everything except the projection:
+- `freeze_vit: True` — ViT image encoder frozen
+- `freeze_qformer: True` — Q-Former frozen
+- `freeze_proj_layer: False` — **Projection layer trainable**
+- Vicuna-7B LLM is frozen by default in the model code
+
+Total trainable parameters: ~3.15M out of ~7B+ total.
+
+---
+
+## 4. Key Configuration
 
 ### dagger_server.py — Experiment Settings
 
@@ -108,10 +204,10 @@ Phase 2 (DPO): enable_dpo=True, load_pretrained=True, ref_pretrained=πref
 | `num_rounds` | 2 | 6 (BC) / 12 (DPO) | DAgger training rounds |
 | `num_envs` | 3 | 134 | Household tasks per round |
 | `enable_dpo` | False (Phase 1) / True (Phase 2) | — | Toggle BC vs DPO |
-| `enable_tc` | False | — | Thought chain imitation |
+| `enable_tc` | False | — | Thought chain imitation (ReAct `think:` steps) |
 | `batch_size` (BC) | 8 | 128 | Training batch size for BC |
 | `batch_size` (DPO) | 1 | 4 | Training batch size for DPO (reduced to avoid OOM) |
-| `accum_grad_steps` | 4 | 4 | Gradient accumulation (effective batch = batch_size × accum) |
+| `accum_grad_steps` | 4 | 4 | Gradient accumulation (effective batch = batch_size x accum) |
 | `train_iters_per_epoch` | 5 | 5 | Gradient steps per environment |
 | `max_steps` (client) | 50 | 50 | Max actions per episode |
 
@@ -139,10 +235,11 @@ usage equals batch_size=1. This is why we reduced DPO batch from 4→1 after OOM
 | `freeze_vit` | True | ViT encoder is frozen |
 | `freeze_qformer` | True | Q-Former is frozen |
 | `freeze_proj_layer` | False | **Projection layer is trainable** |
+| `adaptor_tuning` | False | LoRA-style tuning (disabled) |
 
 ---
 
-## 4. All Files
+## 5. All Files
 
 ### Files Created
 
@@ -160,17 +257,31 @@ usage equals batch_size=1. This is why we reduced DPO batch from 4→1 after OOM
 
 | File | Change |
 |------|--------|
-| `dagger_server.py` | Reduced scale (2×3), GPT-5.2 expert, `DONE` marker, DPO batch_size=1, English comments |
+| `dagger_server.py` | Reduced scale (2x3), GPT-5.2 expert, `DONE` marker, DPO batch_size=1, English comments |
 | `generate_reflections.py` | Updated default model to `gpt-5.2-2025-12-11` |
 | `lavis/configs/models/blip2/blip2_emac.yaml` | Added `vicuna7b` model type, DPO settings, checkpoint paths |
 | `xrl_alignment/utils.py` | System prompt fix for GPT-5.2 chat model compatibility |
 | `environment.yml` | Added `h5py`, `tiktoken`, `tenacity` dependencies |
 
+### Existing Files (not modified, part of original codebase)
+
+| File | Purpose |
+|------|---------|
+| `generate_reflections.py` | Retrospective feedback — LLM reflects on failures, stores in memory |
+| `post_processing.py` | Action post-processing and normalization |
+| `train.py` | Offline supervised training (LAVIS-based, separate from DAgger) |
+| `evaluate.py` | Evaluation mode on held-out tasks |
+| `prompts/alfworld_3prompts.json` | ReAct few-shot prompts (3 examples per task type) |
+| `prompts/reflexion_few_shot_examples.txt` | Few-shot examples for generating reflections |
+| `lavis/models/blip2_models/blip2_emac.py` | EMMA model: forward() for BC, dpo_forward() for DPO |
+| `lavis/models/blip2_models/blip2.py` | BLIP-2 base with adaptor_tuning support |
+| `lavis/models/base_model.py` | Checkpoint loading logic |
+
 ### xrl_alignment/utils.py — Key Components
 
 | Class/Function | Purpose |
 |----------------|---------|
-| `EnvironmentHistory` | Tracks base prompt + few-shot examples + action/observation history |
+| `EnvironmentHistory` | Tracks base prompt + few-shot examples + action/observation history + reflections |
 | `ReplayBuffer` | Stores (image, text_input, text_output) tuples for BC training |
 | `DPOReplayBuffer` | Stores (image, text_input, winner, loser) tuples for DPO training |
 | `save_checkpoint()` | Saves model weights, optimizer state, scaler state to `.pth` file |
@@ -181,12 +292,13 @@ usage equals batch_size=1. This is why we reduced DPO batch from 4→1 after OOM
 
 ---
 
-## 5. Fixes Applied
+## 6. Fixes Applied
 
 ### Fix 1: GPT-5.2 Chat Model Compatibility
 
-**Problem**: The original paper used `text-davinci-003` (a completion model) that naturally
-continues few-shot text patterns. GPT-5.2 is a chat model that would return:
+**Problem**: The original codebase used `text-davinci-003` (a completion model) that naturally
+continues few-shot text patterns. The paper uses LLaMa3 (also good at few-shot completion).
+GPT-5.2 is a chat model that would return:
 - Empty strings (started response with `\n`, got truncated by stop-sequence logic)
 - Explanatory text (`"tank" refers to the toilet tank...`) instead of actions
 - Multi-step trajectories instead of single actions
@@ -214,8 +326,8 @@ empty strings or explanations.
 The log showed `Start Training` but no training metrics appeared. GPU showed 99.7% memory
 usage and 0% utilization.
 
-**Cause**: DPO runs 4 forward passes per training step (current model × winner/loser +
-reference model × winner/loser), compared to BC's single forward pass. batch_size=4 × 4
+**Cause**: DPO runs 4 forward passes per training step (current model x winner/loser +
+reference model x winner/loser), compared to BC's single forward pass. batch_size=4 x 4
 passes exceeded available memory.
 
 **Fix**: Reduced DPO `batch_size` from 4 to 1 in `dagger_server.py`. With
@@ -231,7 +343,7 @@ output directory when all training rounds complete. The pipeline script polls fo
 
 ---
 
-## 6. How to Run
+## 7. How to Run
 
 ### Prerequisites
 
@@ -285,46 +397,46 @@ nvidia-smi
 
 ---
 
-## 7. Output Directory Structure
+## 8. Output Directory Structure
 
 ```
 output/dagger_server_human_desc/
-├── with_bc_dpo-False-tc-False-<TIMESTAMP>/   ← Phase 1 (BC)
-│   ├── running_nb01.log                       ← Training log
-│   ├── logging_results/
-│   │   ├── world.log                          ← Round summaries (success/fail/accuracy)
-│   │   ├── trial_0.log                        ← Per-env trajectories (round 0)
-│   │   ├── trial_1.log                        ← Per-env trajectories (round 1)
-│   │   ├── env_results_trial_0.json           ← Per-env success/failure
-│   │   └── env_results_trial_1.json
-│   ├── emma_checkpoint_0.pth                  ← Checkpoint after round 0
-│   ├── emma_checkpoint_1.pth                  ← Checkpoint after round 1 (= πref)
-│   └── DONE                                   ← Completion marker
-│
-└── with_bc_dpo-True-tc-False-<TIMESTAMP>/    ← Phase 2 (DPO)
-    ├── running_nb01.log
-    ├── logging_results/
-    ├── emma_checkpoint_0.pth
-    ├── emma_checkpoint_1.pth                  ← Final model
-    └── DONE
+|-- with_bc_dpo-False-tc-False-<TIMESTAMP>/   <- Phase 1 (BC)
+|   |-- running_nb01.log                       <- Training log
+|   |-- logging_results/
+|   |   |-- world.log                          <- Round summaries (success/fail/accuracy)
+|   |   |-- trial_0.log                        <- Per-env trajectories (round 0)
+|   |   |-- trial_1.log                        <- Per-env trajectories (round 1)
+|   |   |-- env_results_trial_0.json           <- Per-env success/failure
+|   |   +-- env_results_trial_1.json
+|   |-- emma_checkpoint_0.pth                  <- Checkpoint after round 0
+|   |-- emma_checkpoint_1.pth                  <- Checkpoint after round 1 (= piref)
+|   +-- DONE                                   <- Completion marker
+|
++-- with_bc_dpo-True-tc-False-<TIMESTAMP>/    <- Phase 2 (DPO)
+    |-- running_nb01.log
+    |-- logging_results/
+    |-- emma_checkpoint_0.pth
+    |-- emma_checkpoint_1.pth                  <- Final model
+    +-- DONE
 ```
 
 ---
 
-## 8. Understanding the Training Logs
+## 9. Understanding the Training Logs
 
 ### BC Training Log
 
 ```
 INFO:dagger_server_running:Task: [0], Iter: [5], Obs: Nothing happens.,
-  VLM Action: you are in the middle of a room,    ← VLM output (garbage — untrained)
-  LLM Action: go to countertop 1                  ← Expert label (correct action)
+  VLM Action: you are in the middle of a room,    <- VLM output (garbage - untrained)
+  LLM Action: go to countertop 1                  <- Expert label (correct action)
 ```
 
 - **Task [N]**: Which environment (0 to num_envs-1)
 - **Iter [N]**: Step within the episode (0 to max_steps)
 - **Obs**: What the environment returned after the VLM's action
-- **VLM Action**: What the VLM generated (garbage early on — normal)
+- **VLM Action**: What the VLM generated (garbage early on — normal for untrained model)
 - **LLM Action**: What GPT-5.2 expert suggested (used as training label)
 - **"Nothing happens."**: Environment didn't recognize the VLM's output as a valid action
 
@@ -355,25 +467,26 @@ L_reward to decrease (loser becomes less likely).
 
 ---
 
-## 9. Verification Checklist
+## 10. Verification Checklist
 
 - [x] **Phase 1 (BC) completes**: Checkpoints saved, DONE marker written
-- [x] **Phase 1 loss decreases**: ~4.7 → ~3.76 over training
+- [x] **Phase 1 loss decreases**: ~4.7 -> ~3.76 over training
 - [x] **LLM expert outputs valid actions**: "go to countertop 1" (not empty strings)
 - [x] **Phase 2 (DPO) starts**: No crash on `ref_query_tokens is None`
 - [x] **Phase 2 shows DPO metrics**: W_reward, L_reward, NLL in training logs
-- [ ] **Phase 2 completes**: Checkpoints saved, DONE marker written
+- [x] **Phase 2 completes**: Checkpoints saved, DONE marker written
+- [x] **W_reward increases over training**: 0.0 -> 0.16
 
 ---
 
-## 10. Common Errors and Fixes
+## 11. Common Errors and Fixes
 
 ### LLM expert returns empty actions
 
 **Symptom**: Log shows `LLM Action:` (empty) for most iterations.
 
 **Cause**: Chat models (GPT-5.2) don't follow few-shot completion patterns like
-`text-davinci-003` did. Responses start with `\n` or contain explanatory text.
+`text-davinci-003` or LLaMa3 did. Responses start with `\n` or contain explanatory text.
 
 **Fix**: System prompt in `xrl_alignment/utils.py:get_chat()` constrains the model
 to output only single-line actions. See Fix 1 above.
@@ -416,7 +529,7 @@ then `kill <PID>`.
 
 ---
 
-## 11. Scaling Up to Paper Configuration
+## 12. Scaling Up to Paper Configuration
 
 To replicate the full paper results, change these settings:
 
@@ -433,6 +546,11 @@ num_rounds = 12       # was 2
 num_envs = 134        # was 3
 batch_size = 4        # was 1 — may need more GPU memory or multi-GPU
 ```
+
+**Additional steps for full paper replication**:
+- Replace GPT-5.2 with self-hosted LLaMa3 (paper's expert model)
+- Enable LoRA fine-tuning of the LLM expert (`adaptor_tuning: True`)
+- Use 134 OOD evaluation tasks from ALFWorld
 
 Note: Paper-scale runs will take significantly longer and require more GPU memory
 for larger batch sizes. Consider multi-GPU training or further gradient accumulation.
